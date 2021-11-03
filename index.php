@@ -6,6 +6,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/home.css">
+	<link rel="stylesheet" href="css/footer.css">
 	
 </head>
 <body>
@@ -53,6 +54,8 @@
 			</div>
 		</div>
 	</main>
+
+	<?php  require_once("assets/footer.php");?>
 </body>
 </html>
 
