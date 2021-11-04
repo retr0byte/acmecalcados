@@ -136,9 +136,7 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
-	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
-	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+    box-shadow: 6px 3px 6px #00000096;
 }
 
 .nome-depoimento {
