@@ -3,27 +3,27 @@
             <div>
                 <span>LINKS ÚTEIS</span>
                 <ul>
-                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Contato</li>
-                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Seja um franqueado</li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon><a href="<?php echo PATH_LINKS; ?>/view/pages/contato.php">Contato</a></li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon><a href="<?php echo PATH_LINKS; ?>/view/pages/sejaUmFranqueado.php">Seja um franqueado</a></li>
                 </ul>
             </div>
 
             <div>
                 <span>SOBRE A ACME</span>
                 <ul>
-                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Visão, missão e valores</li>
-                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Cultura</li>
-                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Projetos sociais</li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon><a href="<?php echo PATH_LINKS; ?>/view/pages/valores.php">Visão, missão e valores</a></li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon><a href="<?php echo PATH_LINKS; ?>/view/pages/cultura.php">Cultura</a></li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon><a href="<?php echo PATH_LINKS; ?>/view/pages/projetosSociais.php">Projetos sociais</a></li>
                 </ul>
             </div>
 
             <div>
                 <span>Redes Sociais</span>
                 <ul>
-                    <li><i class="fab fa-facebook-square"></i>Facebook</li>
-                    <li><i class="fab fa-instagram"></i>Instagram</li>
-                    <li><i class="fab fa-linkedin"></i>Linkedin</li>
-                    <li><i class="fab fa-youtube"></i>Youtube</li>
+                    <li><i class="fab fa-facebook-square"></i><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><i class="fab fa-instagram"></i><a href="https://www.instagram.com/">Instagram</a></li>
+                    <li><i class="fab fa-linkedin"></i><a href="https://br.linkedin.com/">Linkedin</a></li>
+                    <li><i class="fab fa-youtube"></i><a href="https://www.youtube.com/">Youtube</a></li>
                 </ul>
             </div>
         </div>

@@ -3,7 +3,7 @@
 		<div class="all-menu">
 
 			<section>
-				<a href="<?php echo PATH_LINKS; ?>/public/index.php"><img src="/projetoFinal-GP/assets/images/logo.png" class="logo"></a>
+				<a href="<?php echo PATH_LINKS; ?>/public/index.php"><img src="<?php echo PATH_LINKS; ?>/assets/images/logo.png" class="logo"></a>
 			</section>
 
 			<section class="section-itens">
@@ -12,8 +12,8 @@
 						<li class="first-li"><a href="<?php echo PATH_LINKS; ?>/public/index.php">HOME</a></li>
 						<li class="first-li"><a href="#">SOBRE</a>
 							<ul>
-								<li><a href="#">VISÃO, MISSÃO E VALORES</a></li>
-								<li><a href="#">CULTURA</a></li>
+								<li><a href="<?php echo PATH_LINKS; ?>/view/pages/valores.php">VISÃO, MISSÃO E VALORES</a></li>
+								<li><a href="<?php echo PATH_LINKS; ?>/view/pages/cultura.php">CULTURA</a></li>
 								<li><a href="<?php echo PATH_LINKS; ?>/view/pages/projetosSociais.php">PROJETOS SOCIAIS</a></li>
 							</ul>
 						</li>

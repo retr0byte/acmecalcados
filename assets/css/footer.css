@@ -1,14 +1,15 @@
 /*Footer*/
+
 * {
     margin: 0;
     padding: 0;
 }
 
-footer{
+footer {
     background-color: #f2f2f2;
 }
 
-#cima{
+#cima {
     font-family: Montserrat;
     display: flex;
     justify-content: space-around;
@@ -17,7 +18,7 @@ footer{
     color: #707070;
 }
 
-#baixo{
+#baixo {
     display: flex;
     justify-content: space-around;
     border: 1px solid #707070;
@@ -43,6 +44,12 @@ footer ul li {
     padding: 5px 0px;
 }
 
-.fab, .far {
+footer ul li a {
+    text-decoration: none;
+    color: #707070;
+}
+
+.fab,
+.far {
     margin-right: 10px;
 }
