@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <!-- Desenvolvido por: GLG -->
 <!-- Page Cultura -->
+<!-- Sessão Sobre -->
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
