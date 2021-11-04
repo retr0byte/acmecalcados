@@ -1,0 +1,34 @@
+{
+    "name":"gabriielsilva5/acme-calcados",
+    "description":"Projeto final da disciplina de Gestão de Projetos",
+    "authors": [
+        {
+            "name":"Gabriel Castro da Silva",
+            "email": "gabriel.silva472@fatec.sp.gov.br",
+            "role":"developer"
+        },
+        {
+            "name":"Gustavo Costa Arakaki",
+            "email": "gustavo.arakaki@fatec.sp.gov.br",
+            "role":"developer"
+        },
+        {
+            "name":"Luca Pedro de Oliveira",
+            "email": "luca.oliveira@fatec.sp.gov.br",
+            "role":"developer"
+        }
+    ],
+    "config":{
+        "vendor-dir": "assets/vendor"
+    },
+    "autoload": {
+        "config":"config/",
+        "Source\\":"source/",
+        "files":[
+            "config/config.php"
+        ]
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}

@@ -1,16 +1,21 @@
+<?php require_once __DIR__.'/../assets/vendor/autoload.php'; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
-	<title>index</title>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/home.css">
-	<link rel="stylesheet" href="css/footer.css">
+	<title>ACME Calçados | Home</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../assets/css/header.css">
+	<link rel="stylesheet" href="../assets/css/home.css">
+	<link rel="stylesheet" href="../assets/css/footer.css">
 	
 </head>
 <body>
-	<?php  require_once("assets/header.php");?>
+	<?php  require_once PATH.'/../view/layout/global/header.php';?>
 
 	<main>
 		<div class="banner-home">
@@ -55,7 +60,7 @@
 		</div>
 	</main>
 
-	<?php  require_once("assets/footer.php");?>
+	<?php  require_once PATH.'/../view/layout/global/footer.php'; ?>
 </body>
 </html>
 

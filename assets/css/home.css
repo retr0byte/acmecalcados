@@ -1,5 +1,5 @@
 .banner-home {
-	background: url("../imagens/banner.jpg");
+	background: url("../images/banner.jpg");
 	width: 100%;
 	height: 70vh;
 	background-size: cover;
@@ -60,7 +60,7 @@
 }
 
 .img-mais-vendidos:nth-child(1) {
-	background: url("../imagens/mais-vendidos-2.jpg");
+	background: url("../images/mais-vendidos-2.jpg");
 	width: 330px;
 	height: 50vh;
 	background-size: cover;
@@ -71,7 +71,7 @@
 }
 
 .img-mais-vendidos:nth-child(2) {
-	background: url("../imagens/mais-vendidos-1.jpg");
+	background: url("../images/mais-vendidos-1.jpg");
 	width: 330px;
 	height: 50vh;
 	background-size: cover;
