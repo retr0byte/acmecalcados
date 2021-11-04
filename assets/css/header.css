@@ -1,53 +1,47 @@
 /*css para o header*/
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
+@import url('main.css');
 body {
-	min-height: 100vh;
+    min-height: 100vh;
 }
 
 header {
-	position: relative;
-	padding: 5px;
-	display: flex;
-	justify-content: space-between;
-	background-color: #FFFFFF;
+    position: relative;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFFFFF;
 }
 
 header .nav-header ul {
-	list-style: none;
+    list-style: none;
 }
 
 header .nav-header ul li {
-	position: relative;
-	float: left;
+    position: relative;
+    float: left;
 }
 
 .first-li {
-	padding: 20px;
+    padding: 20px;
 }
 
 header .nav-header ul li a {
-	font-size: 20px;
-	font-family: Montserrat;
-	color: #707070;
-	display: block;
-	opacity: 1;
-	text-decoration: none;
+    font-size: 20px;
+    font-family: Montserrat;
+    color: #707070;
+    display: block;
+    opacity: 1;
+    text-decoration: none;
 }
 
 header .nav-header ul li a:hover {
-	color: #0D65D9;
+    color: #0D65D9;
 }
 
-
 header .nav-header ul li ul {
-	position: absolute;
-	margin-top: 20px;
+    position: absolute;
+    margin-top: 20px;
     left: 0px;
     min-width: 316px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -59,20 +53,20 @@ header .nav-header ul li ul {
 }
 
 header .nav-header ul li ul li {
-	width: 100%;
+    width: 100%;
 }
 
-header .nav-header ul li ul li a{
-	padding: 7px 20px;
-	text-decoration: none;
+header .nav-header ul li ul li a {
+    padding: 7px 20px;
+    text-decoration: none;
 }
 
-header .nav-header ul li:hover > ul {
-	display: initial;
+header .nav-header ul li:hover>ul {
+    display: initial;
 }
 
 .all-menu {
-	width: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 24px;
@@ -83,30 +77,30 @@ header .nav-header ul li:hover > ul {
 }
 
 .logo {
-	width: 154px;
-	height: 52px;
+    width: 154px;
+    height: 52px;
 }
 
 header .all-menu section {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
-.franqueado-link a{
-	font-size: 20px;
-	font-family: Montserrat;
-	color: #707070;
-	opacity: 1;
-	text-decoration: none;
-	border: 2px solid var(--unnamed-color-1e6fd9);
-	background: #FFFFFF 0% 0% no-repeat padding-box;
-	border: 2px solid #1E6FD9;
-	border-radius: 20px;
-	opacity: 1;
-	padding: 10px 18px;
+.franqueado-link a {
+    font-size: 20px;
+    font-family: Montserrat;
+    color: #707070;
+    opacity: 1;
+    text-decoration: none;
+    border: 2px solid var(--unnamed-color-1e6fd9);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #1E6FD9;
+    border-radius: 20px;
+    opacity: 1;
+    padding: 10px 18px;
 }
 
 .franqueado-link a:hover {
-	color: #fff;
-	background-color: #1E6FD9;
+    color: #fff;
+    background-color: #1E6FD9;
 }

@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<!-- Desenvolvido por: GLG -->
+
 <!-- Page Visão, Missão e Valores -->
 <!-- Sessão Sobre -->
 <head>

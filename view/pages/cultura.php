@@ -1,7 +1,7 @@
 <?php require_once __DIR__.'/../../assets/vendor/autoload.php'; ?>
 
 <!DOCTYPE html>
-<!-- Desenvolvido por: GLG -->
+
 <!-- Page Cultura -->
 <!-- Sessão Sobre -->
 <html lang="pt-br">

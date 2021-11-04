@@ -12,7 +12,11 @@
 </head>
 <body>
     <?php  require_once PATH.'/../view/layout/global/header.php';?>
-    <h1>Hello World</h1>
+    
+    <main class="contato">
+        <h1>Projetos Sociais</h1>
+    </main>
+
     <?php  require_once PATH.'/../view/layout/global/footer.php';?>
 </body>
 </html>
