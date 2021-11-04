@@ -4,6 +4,7 @@
 <html lang="pt-br">
 <!-- Desenvolvido por: GLG -->
 <!-- Page Visão, Missão e Valores -->
+<!-- Sessão Sobre -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
