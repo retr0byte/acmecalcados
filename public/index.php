@@ -80,16 +80,35 @@
 		</div>
 
 		<section class="s-parceiros">
+			
 			<div class="title-parceiros">
 				<h2>Parceiros</h2>
 			</div>
+
 			<div class="container-parceiros">
 				<div class="circulo-parceiros"></div>
 				<div class="circulo-parceiros"></div>
 				<div class="circulo-parceiros"></div>
 				<div class="circulo-parceiros"></div>
 			</div>	
+
 		</section>
+
+		<!-- newsletter -->
+		<div class="newsletter">
+			
+			<section>
+				<div class="title-newsletter"><span>Receba ofertas em primeira mão:</span></div>
+				
+				<div class="form-newsletter">
+					<form method="POST" class="form-n">
+						<input type="email" name="email_newsletter" placeholder="Seu melhor e-mail:">
+						<input type="submit" value="Cadastrar">
+					</form>
+				</div>
+			</section>
+
+		</div>	
 
 	</main>
 
