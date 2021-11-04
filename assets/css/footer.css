@@ -1,7 +1,7 @@
 /*Footer*/
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 footer{
@@ -26,4 +26,23 @@ footer{
     font-size: 20px;
     font-family: Montserrat;
     color: #707070;
+}
+
+#cima div {
+    display: flex;
+    flex-direction: column;
+}
+
+div span {
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+footer ul li {
+    list-style: none;
+    padding: 5px 0px;
+}
+
+.fab, .far {
+    margin-right: 10px;
 }

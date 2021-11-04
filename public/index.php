@@ -6,6 +6,8 @@
 	<meta charset="utf-8">
 	<title>ACME Calçados | Home</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="../assets/css/header.css">
 	<link rel="stylesheet" href="../assets/css/home.css">
 	<link rel="stylesheet" href="../assets/css/footer.css">

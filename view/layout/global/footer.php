@@ -1,36 +1,37 @@
 <footer>
         <div id="cima">
             <div>
-                <strong>LINKS ÚTEIS</strong>
+                <span>LINKS ÚTEIS</span>
                 <ul>
-                    <li>Contato</li>
-                    <li>Seja um franqueado</li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Contato</li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Seja um franqueado</li>
                 </ul>
             </div>
 
             <div>
-                <strong>SOBRE A ACME</strong>
+                <span>SOBRE A ACME</span>
                 <ul>
-                    <li>Visão, missão e valores</li>
-                    <li>Cultura</li>
-                    <li>Projetos sociais</li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Visão, missão e valores</li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Cultura</li>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon>Projetos sociais</li>
                 </ul>
             </div>
 
             <div>
-                <strong>Redes Sociais</strong>
+                <span>Redes Sociais</span>
                 <ul>
-                    <li>Facebook</li>
-                    <li>Instagram</li>
-                    <li>Linkedin</li>
-                    <li>Youtube</li>
+                    <li><i class="fab fa-facebook-square"></i>Facebook</li>
+                    <li><i class="fab fa-instagram"></i>Instagram</li>
+                    <li><i class="fab fa-linkedin"></i>Linkedin</li>
+                    <li><i class="fab fa-youtube"></i>Youtube</li>
                 </ul>
             </div>
         </div>
 
         <div id="baixo">
-            <div>ACME Calçados | 2021</div>
+            <div><i class="fas fa-copyright"></i> ACME Calçados | 2021</div>
             <div>Todos os direitos reservados</div>
             <div>oi@acme.com</div>
         </div>
     </footer>
+    <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
