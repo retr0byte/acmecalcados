@@ -1,0 +1,24 @@
+/*Folha de estilos feita por: GLG*/
+/*Page Cultura*/
+#cultura{
+    width: 80%;
+    margin: 15px auto;
+}
+
+#cultura h1{
+    text-align: center;
+    font-size: 45px;
+    color: #0D65D9;
+    font-family: Montserrat;
+}
+
+#cultura p{
+    font-size: 20px;
+    font-family: Montserrat;
+    color: #707070;
+}
+
+#cultura img{
+    width: 100%;
+    margin: 15px auto;
+}
