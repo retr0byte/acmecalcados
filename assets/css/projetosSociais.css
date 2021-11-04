@@ -1,0 +1,50 @@
+@import url('main.css');
+main.projetos-sociais {
+    width: 80%;
+    margin: 0 auto;
+}
+
+main.projetos-sociais h1 {
+    color: var(--unnamed-color-0d65d9);
+    font-weight: 700;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+main.projetos-sociais section.item-wrapper {
+    width: 100%;
+    display: flex;
+    margin: 70px 0;
+    align-items: center;
+}
+
+section.item-wrapper div.img-wrapper {
+    width: 48%;
+    margin: 0 1%;
+}
+
+section.item-wrapper div.img-wrapper img {
+    width: 100%;
+    height: 300px;
+    box-shadow: 15px -15px 6px #00000047;
+}
+
+section.item-wrapper div.middle-wrapper img {
+    box-shadow: -15px -15px 6px #00000047;
+}
+
+section.item-wrapper div.text-content {
+    width: 48%;
+    margin: 0 1%;
+    color: var(--unnamed-color-707070);
+}
+
+section.item-wrapper div.text-content h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+section.item-wrapper div.text-content p {
+    text-align: justify;
+}
