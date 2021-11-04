@@ -57,6 +57,40 @@
 
 			</div>
 		</div>
+
+
+		<!-- depoimentos-->
+
+		<div class="container-depoimentos">
+
+			<div class="folha-depoimento">
+				<div class="imagem-depoimento">
+					<img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem">
+				</div>
+				<div class="nome-depoimento">nome</div>
+				<div class="texto-depoimento">texto</div>
+			</div>
+
+			<div class="folha-depoimento">
+				<div class="imagem-depoimento"><img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem"></div>
+				<div class="nome-depoimento">nome</div>
+				<div class="texto-depoimento">texto</div>
+			</div>
+
+		</div>
+
+		<section class="s-parceiros">
+			<div class="title-parceiros">
+				<h2>Parceiros</h2>
+			</div>
+			<div class="container-parceiros">
+				<div class="circulo-parceiros"></div>
+				<div class="circulo-parceiros"></div>
+				<div class="circulo-parceiros"></div>
+				<div class="circulo-parceiros"></div>
+			</div>	
+		</section>
+
 	</main>
 
 	<?php  require_once PATH.'/../view/layout/global/footer.php'; ?>

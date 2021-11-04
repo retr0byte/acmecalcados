@@ -119,3 +119,61 @@
 	position: relative;
 	margin-top: 12px;
 }
+
+
+
+/*depoimentos*/
+
+.container-depoimentos {
+	display: flex;
+    justify-content: center;
+    background-color: DodgerBlue;
+}
+
+.folha-depoimento {
+	background-color: #f1f1f1;
+    margin: 10px;
+}
+
+.imagem-depoimento img {
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+}
+
+/*parceiros*/
+
+.s-parceiros {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 40px;
+}
+
+.title-parceiros {
+	margin: auto;
+}
+
+.title-parceiros h2 {
+	font-family: Montserrat;
+	font-weight: bold;
+	color: #0D65D9;
+	opacity: 1;
+	font-size: 35px;
+	margin: 40px;
+}
+
+.container-parceiros {
+	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}	
+
+.circulo-parceiros {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 10px 50px;
+	border: 1px solid #707070;
+	opacity: 1;
+}
