@@ -22,7 +22,7 @@
 				</nav>
 
 				<div class="franqueado-link">
-					<a href="#">SEJA UM FRANQUEADO</a>
+					<a href="<?php echo PATH_LINKS; ?>/view/pages/sejaUmFranqueado.php">SEJA UM FRANQUEADO</a>
 				</div>
 			</section>
 			

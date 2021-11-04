@@ -1,0 +1,35 @@
+@import url('main.css');
+
+.secao-franqueado {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+.secao-franqueado > div {
+	max-width: 800px;
+	margin: 15px;
+}
+
+.secao-franqueado div img {
+	width: 100%;
+}
+
+.secao-franqueado div p {
+	font-size: 20px;
+	font-family: Montserrat;
+	color: #707070;
+}
+
+.secao-franqueado div p span {
+	color: #0D65D9;
+}
+
+.secao-franqueado h1 {
+	font-family: Montserrat;
+	font-weight: bold;
+	color: #0D65D9;
+	opacity: 1;
+	font-size: 35px;
+}
