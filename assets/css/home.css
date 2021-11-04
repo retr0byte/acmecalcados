@@ -25,7 +25,7 @@
 }
 
 .banner-conteudo p {
-	font: normal normal medium 35px/43px Montserrat;
+	font-size: 35px;
 	font-weight: 500;
 	color: #fff;
 	font-family: Montserrat;
@@ -85,7 +85,6 @@
 
 .container-img-vendidos {
 	display: flex;
-	padding: 2px;
 }
 
 .banner-conteudo-vendidos {
@@ -127,18 +126,75 @@
 .container-depoimentos {
 	display: flex;
     justify-content: center;
-    background-color: DodgerBlue;
 }
 
 .folha-depoimento {
-	background-color: #f1f1f1;
-    margin: 10px;
+	margin: 20px;
+	width: 320px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+
+.nome-depoimento {
+	margin:15px 0px 25px 0px;
+}
+
+.nome-depoimento span {
+	font-family: Montserrat;
+	font-weight: bold;
+	color: #0D65D9;
+	opacity: 1;
+	font-size: 25px;
+	margin: 0px;
 }
 
 .imagem-depoimento img {
 	height: 150px;
 	width: 150px;
 	border-radius: 50%;
+}
+
+.s-depoimentos {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #F2F2F2;
+	padding: 20px 0px 35px 0px;
+}
+
+.titulo-depoimentos {
+	margin: 10px auto;
+}
+
+
+
+.title-depoimentos p span {
+	font-family: Montserrat;
+	font-weight: bold;
+	color: #0D65D9;
+	opacity: 1;
+	font-size: 35px;
+}
+
+.title-depoimentos p{
+	font-family: Montserrat;
+	color: #0D65D9;
+	opacity: 1;
+}
+
+.titulo-depoimentos h2 {
+	font-family: Montserrat;
+	font-weight: bold;
+	color: #0D65D9;
+	opacity: 1;
+	font-size: 35px;
+	margin: 0px;
 }
 
 /*parceiros*/

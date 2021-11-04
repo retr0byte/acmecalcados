@@ -33,7 +33,7 @@
 				
 				<div class="img-mais-vendidos">
 
-					<div id="container-img-vendidos">
+					<div class="container-img-vendidos">
 						<div class="banner-conteudo-vendidos">
 							<span>Bota de trilha - 123 Lorem Ipsum</span>
 							
@@ -45,7 +45,7 @@
 
 				<div class="img-mais-vendidos">
 
-					<div id="container-img-vendidos">
+					<div class="container-img-vendidos">
 						<div class="banner-conteudo-vendidos">
 							<span>Tênis Nike 12345 - Lorem Ipsum</span>
 
@@ -61,23 +61,42 @@
 
 		<!-- depoimentos-->
 
-		<div class="container-depoimentos">
+		<section class="s-depoimentos">
 
-			<div class="folha-depoimento">
-				<div class="imagem-depoimento">
-					<img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem">
+			<div class="titulo-depoimentos">
+				<h2>O que nossos clientes tem a dizer?</h2>
+			</div>
+
+			<div class="container-depoimentos">
+
+				<div class="folha-depoimento">
+					<div class="imagem-depoimento">
+						<img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem">
+					</div>
+					<div class="nome-depoimento"><span>João</span></div>
+					<div class="title-depoimentos"><p><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus. Integer luctus nisi ut quam euismod, id ultricies nunc convallis.</p></div>
 				</div>
-				<div class="nome-depoimento">nome</div>
-				<div class="texto-depoimento">texto</div>
-			</div>
 
-			<div class="folha-depoimento">
-				<div class="imagem-depoimento"><img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem"></div>
-				<div class="nome-depoimento">nome</div>
-				<div class="texto-depoimento">texto</div>
-			</div>
+				<div class="folha-depoimento">
+					<div class="imagem-depoimento">
+						<img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem">
+					</div>
+					<div class="nome-depoimento"><span>João</span></div>
+					<div class="title-depoimentos"><p><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus. Integer luctus nisi ut quam euismod, id ultricies nunc convallis.</p></div>
+				</div>
 
-		</div>
+				<div class="folha-depoimento">
+					<div class="imagem-depoimento">
+						<img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem">
+					</div>
+					<div class="nome-depoimento"><span>João</span></div>
+					<div class="title-depoimentos"><p><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus. Integer luctus nisi ut quam euismod, id ultricies nunc convallis.</p></div>
+				</div>
+
+
+
+			</div>
+		</section>
 
 		<section class="s-parceiros">
 			
