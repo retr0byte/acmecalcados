@@ -98,6 +98,8 @@
 			</div>
 		</section>
 
+		<!-- parceiros -->
+
 		<section class="s-parceiros">
 			
 			<div class="title-parceiros">
