@@ -1,12 +1,84 @@
 @import url('main.css');
-main.projetos-sociais {
+.w100 {
+    width: 100% !important;
+}
+
+main.contato {
     width: 80%;
     margin: 0 auto;
 }
 
-main.projetos-sociais h1 {
+main.contato h1 {
     color: var(--unnamed-color-0d65d9);
     font-weight: 700;
     font-size: 2.5em;
     text-align: center;
+}
+
+main.contato section.description {
+    width: 100%;
+    margin: 20px 0;
+}
+
+main.contato section.description p {
+    text-align: center;
+    color: var(--unnamed-color-707070);
+}
+
+main.contato section.form-contato h2 {
+    color: var(--unnamed-color-0d65d9);
+    font-weight: 500;
+    font-size: 2em;
+    text-align: center;
+}
+
+main.contato section.form-contato {
+    margin: 60px 0;
+    width: 100%;
+}
+
+section.form-contato form {
+    width: 100%;
+}
+
+section.form-contato form div.form-line-wrapper {
+    width: 100%;
+    display: flex;
+    padding: 0 0.5%;
+    justify-content: space-between;
+    margin: 25px 0;
+}
+
+section.form-contato form div.form-column-wrapper {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+}
+
+section.form-contato form div.form-line-wrapper input[type=text],
+section.form-contato form div.form-line-wrapper input[type=email],
+textarea {
+    border: 2px solid var(--unnamed-color-0d65d9);
+    background-color: #F2F2F2;
+    padding: 10px;
+}
+
+section.form-contato form div.form-line-wrapper label {
+    color: var(--unnamed-color-0d65d9);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+section.form-contato form div.form-line-wrapper:last-child {
+    justify-content: flex-end;
+}
+
+section.form-contato form input[type=submit] {
+    background-color: var(--unnamed-color-0d65d9);
+    color: #FFFFFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    padding: 10px 60px;
+    cursor: pointer;
 }
