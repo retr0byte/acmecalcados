@@ -1,34 +1,37 @@
 {
-    "name":"gabriielsilva5/acme-calcados",
-    "description":"Projeto final da disciplina de Gestão de Projetos",
-    "authors": [
-        {
-            "name":"Gabriel Castro da Silva",
+    "name": "gabriielsilva5/acme-calcados",
+    "description": "Projeto final da disciplina de Gestão de Projetos",
+    "authors": [{
+            "name": "Gabriel Castro da Silva",
             "email": "gabriel.silva472@fatec.sp.gov.br",
-            "role":"developer"
+            "role": "developer"
         },
         {
-            "name":"Gustavo Costa Arakaki",
+            "name": "Gustavo Costa Arakaki",
             "email": "gustavo.arakaki@fatec.sp.gov.br",
-            "role":"developer"
+            "role": "developer"
         },
         {
-            "name":"Luca Pedro de Oliveira",
+            "name": "Luca Pedro de Oliveira",
             "email": "luca.oliveira@fatec.sp.gov.br",
-            "role":"developer"
+            "role": "developer"
         }
     ],
-    "config":{
+    "config": {
         "vendor-dir": "assets/vendor"
     },
     "autoload": {
-        "config":"config/",
-        "Source\\":"source/",
-        "files":[
-            "config/config.php"
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "config": "config/",
+        "files": [
+            "config/config.php",
+            "config/db.php"
         ]
     },
     "require": {
-        "phpmailer/phpmailer": "^6.5"
+        "phpmailer/phpmailer": "^6.5",
+      "ext-mysqli": "*"
     }
 }
