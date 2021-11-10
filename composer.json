@@ -27,11 +27,13 @@
         "config": "config/",
         "files": [
             "config/config.php",
-            "config/db.php"
+            "config/db.php",
+            "config/sendmail.php"
         ]
     },
     "require": {
         "phpmailer/phpmailer": "^6.5",
-      "ext-mysqli": "*"
+      "ext-mysqli": "*",
+      "ext-pdo": "*"
     }
 }
