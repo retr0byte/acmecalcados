@@ -3,6 +3,55 @@
     width: 100% !important;
 }
 
+
+/* erros */
+
+div#mensagensErro{
+    display: none;
+    width: 80%;
+    margin: 30px auto 0 auto;
+}
+
+div#mensagensErro h2{
+    border-bottom: 1px solid #343a40;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    color: #721C24;
+}
+
+
+div#erros{
+    background-color: #F8D7DA;
+    color:#721C24;
+    padding: 15px;
+}
+
+div#erros a{
+    font-weight: bold;
+    color:#721C24;
+}
+
+form#formAcessivel{
+    margin: 0 20px;
+}
+
+form#formAcessivel input:focus,
+form#formAcessivel textarea:focus{
+    background-color:#F2E7C4;
+}
+
+.success{
+    background:#D4EDDA;
+    color:#155724;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:20px;
+    padding:20px;
+}
+
+/* Outros estilos */
+
 main.contato {
     width: 80%;
     margin: 0 auto;
@@ -57,10 +106,14 @@ section.form-contato form div.form-column-wrapper {
 
 section.form-contato form div.form-line-wrapper input[type=text],
 section.form-contato form div.form-line-wrapper input[type=email],
-textarea {
+section.form-contato form div.form-line-wrapper textarea {
     border: 2px solid var(--unnamed-color-0d65d9);
     background-color: #F2F2F2;
     padding: 10px;
+}
+
+section.form-contato form div.form-line-wrapper textarea{
+    resize: vertical;
 }
 
 section.form-contato form div.form-line-wrapper label {

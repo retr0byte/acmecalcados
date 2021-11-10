@@ -23,17 +23,23 @@
 
         <section class="form-contato">
             <h2>Vamos bater um papo!</h2>
-            <form action="#" method="POST">
+            <div id="mensagensErro">
+                <h2>Avisos - dados inválidos</h2>
+                <div id="erros">
+
+                </div>
+            </div>
+            <form id="formAcessivel" action="#" method="POST">
                 <div class="form-line-wrapper">
                     
                     <div class="form-column-wrapper">
                         <label for="nome">Nome:</label>
-                        <input type="text" name="nome" id="nome" required>
+                        <input type="text" name="nome" id="nome">
                     </div>
                     
                     <div class="form-column-wrapper">
                         <label for="sobrenome">Sobrenome:</label>
-                        <input type="text" name="sobrenome" id="sobrenome" required>
+                        <input type="text" name="sobrenome" id="sobrenome">
                     </div>
 
                 </div>
@@ -42,12 +48,12 @@
                     
                     <div class="form-column-wrapper">
                         <label for="telefone">Telefone:</label>
-                        <input type="text" name="telefone" id="telefone" required>
+                        <input type="text" name="telefone" id="telefone">
                     </div>
                     
                     <div class="form-column-wrapper">
                         <label for="email">E-mail:</label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email">
                     </div>
 
                 </div>
@@ -55,14 +61,14 @@
                 <div class="form-line-wrapper">
                     <div class="form-column-wrapper w100">
                         <label for="assunto">Assunto:</label>
-                        <input type="text" name="assunto" id="assunto" required>
+                        <input type="text" name="assunto" id="assunto">
                     </div>
                 </div>
                 
                 <div class="form-line-wrapper">
                     <div class="form-column-wrapper w100">
                         <label for="mensagem">Mensagem:</label>
-                        <textarea name="mensagem" id="mensagem" cols="30" rows="15" required></textarea>
+                        <textarea name="mensagem" id="mensagem" cols="30" rows="15"></textarea>
                     </div>
                 </div>
                 
@@ -76,5 +82,10 @@
     </main>
 
     <?php  require_once PATH.'/../view/layout/global/footer.php';?>
+
+    <script src="<?php echo PATH_LINKS ?>/assets/libs/jQuery/jquery.min.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/libs/jQuery-mask/jquery.mask.min.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/js/form_acessivel_validacoes.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/js/form_acessivel.js"></script>
 </body>
 </html>
