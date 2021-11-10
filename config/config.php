@@ -1,6 +1,6 @@
 <?php
 
 const PATH = __DIR__;
-const PATH_LINKS = '/projetoFinal-GP';
+const PATH_LINKS = '';
 
 ?>

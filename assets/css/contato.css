@@ -9,6 +9,7 @@
 div#mensagensErro{
     display: none;
     width: 80%;
+    justify-content: center;
     margin: 30px auto 0 auto;
 }
 
@@ -31,23 +32,32 @@ div#erros a{
     color:#721C24;
 }
 
-form#formAcessivel{
-    margin: 0 20px;
-}
-
-form#formAcessivel input:focus,
-form#formAcessivel textarea:focus{
-    background-color:#F2E7C4;
-}
-
-.success{
+#mensagensSucesso{
+    width: 80%;
+    margin: 20px auto 0 auto;
+    display:none;
     background:#D4EDDA;
     color:#155724;
-    display:flex;
+    flex-direction: column;
     justify-content:center;
     align-items:center;
-    margin-top:20px;
     padding:20px;
+}
+
+#mensagensSucesso i{
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+#loading{
+    display: none;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#loading img{
+    margin: 0;
 }
 
 /* Outros estilos */

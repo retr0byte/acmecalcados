@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACME | Contato</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/header.css">
 	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/footer.css">
 	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/contato.css">
@@ -28,6 +29,15 @@
                 <div id="erros">
 
                 </div>
+            </div>
+
+            <div id="mensagensSucesso">
+                <i class="fas fa-check-double"></i>
+                <p id="sucesso">Tudo certo</p>
+            </div>
+
+            <div id="loading">
+                <img src="<?php echo PATH_LINKS ?>/assets/images/loading.svg" alt="loading">
             </div>
             <form id="formAcessivel" action="#" method="POST">
                 <div class="form-line-wrapper">

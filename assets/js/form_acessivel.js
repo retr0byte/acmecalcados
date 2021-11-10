@@ -35,7 +35,6 @@
 $(function () {
     aplicarMascaras()
     assistirForm()
-    console.log('ola')
 })
 
 const acessarCampos = () => {
@@ -55,7 +54,7 @@ const configVerificacoes = () => {
         sobrenome: { empty: true, minSize: 3, onlyLetters: true },
         email: { empty: true, minSize: 10, onlyLetters: false },
         telefone: { empty: true, minSize: 14, onlyLetters: false },
-        mensagem: { empty: true, minSize: 30, onlyLetters: false },
+        mensagem: { empty: true, minSize: false, onlyLetters: false },
         assunto: { empty: true, minSize: 5, onlyLetters: false },
     }
 }
@@ -156,12 +155,45 @@ const assistirForm = () => {
 const enviarDados = () => {
     // função onde seriam enviados os dados via ajax
 
-    $("#formularioContato").html(`
-        <img src="imagens/sucesso.svg" alt="">
-        <h2>Sucesso!!!</h2>
-    `)
+    $('#mensagensErro').css('display','none')
+    $('#formAcessivel').css('display','none')
+    $('#loading').css('display','flex')
 
-    $("#formularioContato").addClass('success')
+    const campos = acessarCampos()
+
+    const nome = campos.nome.val()
+    const sobrenome = campos.sobrenome.val()
+    const telefone = campos.telefone.val()
+    const email = campos.email.val()
+    const assunto = campos.assunto.val()
+    const mensagem = campos.mensagem.val()
+
+    $.ajax({
+        method: "POST",
+        url: `${location.origin}/source/Routes/routes.php?action=sendmail`,
+        data: { dataPkg: { nome, sobrenome, telefone, email, assunto, mensagem } }
+    }).done(function(response) {
+        response = JSON.parse(response)
+
+        $('#loading').css('display','none')
+
+        if(response.status === 200){
+            $('#sucesso').html(response.message)
+            $('#mensagensSucesso').css('display','flex')
+        }else{
+            $("#erros").html(response.message)
+            $("#mensagensErro h2").css('display','none')
+            $("#mensagensErro").css('display','flex')
+        }
+
+        setTimeout(function(){
+            location.reload(true)
+        },3000)
+
+    }).fail(function(error) {
+        alert('Não foi enviar o email')
+        throw new Error(error)
+    })
 }
 
 
