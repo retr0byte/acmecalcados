@@ -4,13 +4,9 @@
 <html lang="pt-br">
 <!-- Sessão Sobre -->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <?php  require_once PATH.'/../view/layout/global/default_head.php';?>
+
     <title>ACME | Projetos Sociais</title>
-    <link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/header.css">
-	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/footer.css">
 	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/projetosSociais.css">
 </head>
 <body>

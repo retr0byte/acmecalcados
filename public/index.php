@@ -3,16 +3,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta charset="utf-8">
-	<title>ACME Calçados | Home</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/header.css">
-	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/footer.css">
+    <?php  require_once PATH.'/../view/layout/global/default_head.php';?>
+
 	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/home.css">
-	
+    <title>ACME Calçados | Home</title>
+
 </head>
+
 <body>
 	<?php  require_once PATH.'/../view/layout/global/header.php';?>
 

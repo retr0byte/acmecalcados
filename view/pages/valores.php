@@ -3,25 +3,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<!-- Page Visão, Missão e Valores -->
-<!-- Sessão Sobre -->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <?php  require_once PATH.'/../view/layout/global/default_head.php';?>
+    
     <title>ACME | Visão, Missão e Valores</title>
-    <link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/header.css">
-	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/footer.css">
 	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/valores.css">
 </head>
 <body>
-    <!-- Chama o header -->
+
     <?php  require_once PATH.'/../view/layout/global/header.php';?>
     
     <main class="valores">
-        <!-- Título -->
+
         <h1>Visão, Missão e Valores</h1>
 
         <section class="item-wrapper">
@@ -58,7 +51,7 @@
         </section>
     </main>
 
-    <!-- Chama o footer -->
+
     <?php  require_once PATH.'/../view/layout/global/footer.php';?>
 </body>
 </html>

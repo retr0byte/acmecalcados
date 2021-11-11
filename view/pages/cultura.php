@@ -6,15 +6,9 @@
 <!-- Sessão Sobre -->
 <html lang="pt-br">
 <head>
-	<meta charset="utf-8">
+    <?php  require_once PATH.'/../view/layout/global/default_head.php';?>
+
 	<title>ACME | Cultura</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/header.css">
-	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/footer.css">
 	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/cultura.css">
 	
 </head>
