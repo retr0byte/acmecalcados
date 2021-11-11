@@ -18,6 +18,8 @@
 							</ul>
 						</li>
 						<li class="first-li"><a href="<?php echo PATH_LINKS; ?>/view/pages/contato.php">CONTATO</a></li>
+						<li class="first-li"><a href="<?php echo PATH_LINKS; ?>/view/pages/lojas.php">LOJAS</a></li>
+						<li class="first-li"><a href="<?php echo PATH_LINKS; ?>/view/pages/carreiras.php">CARREIRAS</a></li>
 					</ul>
 				</nav>
 
