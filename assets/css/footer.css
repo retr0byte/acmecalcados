@@ -14,6 +14,10 @@ footer {
     color: #707070;
 }
 
+#cima div:first-child span:last-of-type {
+    margin-top: 30px;
+}
+
 #baixo {
     display: flex;
     justify-content: space-around;

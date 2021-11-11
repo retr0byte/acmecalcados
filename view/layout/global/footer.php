@@ -6,6 +6,11 @@
                     <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon><a href="<?php echo PATH_LINKS; ?>/view/pages/contato.php">Contato</a></li>
                     <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon><a href="<?php echo PATH_LINKS; ?>/view/pages/sejaUmFranqueado.php">Seja um franqueado</a></li>
                 </ul>
+
+                <span>PAINEL</span>
+                <ul>
+                    <li><ion-icon ios="ios-flash" md="ios-flash"></ion-icon><a href="<?php echo PATH_LINKS; ?>/view/pages/painel/index.php">Acessar painel</a></li>
+                </ul>
             </div>
 
             <div>
