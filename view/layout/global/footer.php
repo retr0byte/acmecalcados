@@ -25,10 +25,10 @@
             <div>
                 <span>Redes Sociais</span>
                 <ul>
-                    <li><i class="fab fa-facebook-square"></i><a href="https://www.facebook.com/">Facebook</a></li>
-                    <li><i class="fab fa-instagram"></i><a href="https://www.instagram.com/">Instagram</a></li>
-                    <li><i class="fab fa-linkedin"></i><a href="https://br.linkedin.com/">Linkedin</a></li>
-                    <li><i class="fab fa-youtube"></i><a href="https://www.youtube.com/">Youtube</a></li>
+                    <li><i class="fab fa-facebook-square"></i><a target="_blank" href="https://www.facebook.com/acmecalcados">Facebook</a></li>
+                    <li><i class="fab fa-instagram"></i><a target="_blank" href="https://www.instagram.com/acmecalcados">Instagram</a></li>
+                    <li><i class="fab fa-linkedin"></i><a target="_blank" href="https://br.linkedin.com/acmecalcados">Linkedin</a></li>
+                    <li><i class="fab fa-youtube"></i><a target="_blank" href="https://www.youtube.com/acmecalcados">Youtube</a></li>
                 </ul>
             </div>
         </div>
