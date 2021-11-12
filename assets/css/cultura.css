@@ -1,24 +1,31 @@
-
 @import url('main.css');
+
 #cultura {
-    width: 80%;
-    margin: 15px auto;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+#cultura > div {
+	max-width: 800px;
+	margin: 15px;
+}
+
+#cultura div img {
+	width: 100%;
+}
+
+#cultura div p {
+	font-size: 20px;
+	font-family: Montserrat;
+	color: #707070;
 }
 
 #cultura h1 {
-    text-align: center;
-    font-size: 45px;
-    color: #0D65D9;
-    font-family: Montserrat;
-}
-
-#cultura p {
-    font-size: 20px;
-    font-family: Montserrat;
-    color: #707070;
-}
-
-#cultura img {
-    width: 100%;
-    margin: 15px auto;
+	font-family: Montserrat;
+	font-weight: bold;
+	color: #0D65D9;
+	opacity: 1;
+	font-size: 35px;
 }
