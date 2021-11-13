@@ -1,0 +1,78 @@
+@import url('main.css');
+
+main.lojas {
+    width: 80%;
+    margin: 0 auto;
+}
+
+main.lojas h1 {
+    color: var(--unnamed-color-0d65d9);
+    font-weight: 700;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+main.lojas section.img-wrapper {
+    width: 100%;
+    height: 30vh;
+    margin: 80px 0;
+    background-image: url('/assets/images/nossas-lojas.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+main.lojas section.enderecos-lojas{
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+section.enderecos-lojas div.table-line{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+section.enderecos-lojas div.table-column{
+    width: calc((100% / 3) - 2%);
+    margin: 1.5% 0.5%;
+    border: 1px solid var(--unnamed-color-707070);
+    padding: 30px;
+    border-radius: 5px;
+}
+
+div.table-column p{
+    color: var(--unnamed-color-707070);
+    margin: 8px 0;
+    font-size: 1.2em;
+}
+
+div.table-column p i{
+    color: var(--unnamed-color-0d65d9);
+    font-size: 1.2em;
+}
+
+div.table-column p:first-child{
+    font-weight: bold;
+}
+
+div.table-column div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+div.table-column button{
+    width: 200px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    border: 2px solid var(--unnamed-color-0d65d9);
+    color: var(--unnamed-color-0d65d9);
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+div.table-column button i{
+    margin-right: 10px;
+}
