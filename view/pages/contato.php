@@ -7,6 +7,9 @@
 
     <title>ACME | Contato</title>
 	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/contato.css">
+
+    <script src="<?php echo PATH_LINKS ?>/assets/js/captchaChecks.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=captchaIsLoaded" async defer></script>
 </head>
 <body>
     <?php  require_once PATH.'/../view/layout/global/header.php';?>
@@ -36,6 +39,12 @@
                 <img src="<?php echo PATH_LINKS ?>/assets/images/loading.svg" alt="loading">
             </div>
             <form id="formAcessivel" action="#" method="POST">
+                <div id='recaptcha' class="g-recaptcha"
+                     data-sitekey="<?php echo SITE_KEY; ?>"
+                     data-callback="captchaOnSubmit"
+                     data-size="invisible">
+                </div>
+
                 <div class="form-line-wrapper">
                     
                     <div class="form-column-wrapper">
@@ -89,7 +98,6 @@
 
     <?php  require_once PATH.'/../view/layout/global/footer.php';?>
 
-    <script src="<?php echo PATH_LINKS ?>/assets/libs/jQuery/jquery.min.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/libs/jQuery-mask/jquery.mask.min.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/form_acessivel_validacoes.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/form_acessivel.js"></script>

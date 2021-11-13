@@ -28,7 +28,8 @@
         "files": [
             "config/config.php",
             "config/db.php",
-            "config/sendmail.php"
+            "config/sendmail.php",
+            "config/captcha.keys.php"
         ]
     },
     "require": {
@@ -36,5 +37,8 @@
       "ext-mysqli": "*",
       "ext-pdo": "*",
       "ext-xdebug": "*"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
     }
 }

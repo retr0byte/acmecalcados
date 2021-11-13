@@ -14,6 +14,10 @@ function defineRoute($route): string {
             $router = new Router();
             $result = json_encode($router->sendmail($_POST['dataPkg']));
             break;
+        case 'checkcaptcha':
+            $router = new Router();
+            $result = $router->checkcaptcha($_POST['token']);
+            break;
 
         default:
             // em caso de não vir rota nenhuma

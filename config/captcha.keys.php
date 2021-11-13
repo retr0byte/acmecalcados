@@ -1,0 +1,4 @@
+<?php
+
+const SITE_KEY = '6LeA3SodAAAAAAIi5OjtLy5PrBVbvnf275L-tguu';
+const SECRET_KEY = '6LeA3SodAAAAAMX6UToI9Cwor7bwsjKJdhFQ960V';

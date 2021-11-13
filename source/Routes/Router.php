@@ -4,6 +4,7 @@ namespace Source\Routes;
 
 use Source\Class\Email;
 use Source\Class\EnviarEmail;
+use Source\Class\ReCAPTCHA;
 
 class Router
 {
@@ -13,6 +14,11 @@ class Router
         $enviar = new EnviarEmail($email);
 
         return $enviar->get_responseMessage();
+    }
+
+    public function checkcaptcha($captchaUserToken): string{
+        $recaptcha = new ReCAPTCHA($captchaUserToken);
+        return $recaptcha->check();
     }
 
 }

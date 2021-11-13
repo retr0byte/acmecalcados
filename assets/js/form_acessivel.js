@@ -29,7 +29,43 @@
  *                      - como é o caso da minSize
  * 
  *          - exibirMensagem() -> adicionar a nova chave e sua respectiva mensagem de erro, na constante mensagens
- * 
+ *
+ * ETAPA 3 - Google ReCAPTCHA
+ * As validações abaixo funcionam através de integração com o Google Recaptcha v2 Invisible, e portanto, necessitam
+ * de alguns cuidados a mais. Para que a integração funcione corretamente é necessário que seja feito um cadastro na
+ * no site do recaptcha, onde será possível obter sua SITE KEY e sua SECRET KEY.
+ *
+ * Em posse de ambas é necessário adicionar a div abaixo dentro do form que está associado a estas validações:
+ *
+     <div id='recaptcha' class="g-recaptcha"
+         data-sitekey="sua_site_key_aqui"
+         data-callback="captchaOnSubmit"
+         data-size="invisible">
+     </div>
+ *
+ * Feito isso será necessário adicionar as linhas abaixo como primeiras importações de JS da página:
+ *
+    <script src="<?php echo PATH_LINKS ?>/assets/js/captchaChecks.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=captchaIsLoaded" async defer></script>
+ *
+ * A partir daí já deve funcionar mas, é recomendado verificar os paths de importação dos arquivos para
+ * que tudo funcione como o esperado.
+ *
+ *
+ * EXPLICAÇÃO DA PARTE DO CAPTCHA:
+ * Quando o usuário preenche os campos de acordo com as validações, é feita uma verificação na linha 142 deste arquivo para
+ * saber se os arquivos do captcha foram carregados corretamente, em caso positivo, a verificação captcha é iniciada.
+ * Ao rodar o comando { grecaptcha.execute(); } é retornado um token com validade de 2mins na função definida no atributo
+ * { data-callback } mencionado na div acima. Este token é então recebido no arquivo { captchaChecks.js } na função
+ * { captchaOnSubmit } que foi a passada no parâmetro da div mencionada anteriormente. Esta função chama outra função, a
+ * { captchaSend } passando como parametro o token recebido, esta função fara uma requisição HTTP enviando o token por POST para o router do projeto,
+ * que por sua vez "levará" o token até a classe ReCAPTCHA, que possui o método { check }, o qual irá, utilizando a
+ * secret_key e o token, enviar uma requisição para a api do recaptcha, que fará a validação e retornará um JSON como resposta.
+ * Este JSON será retornado até que chegue como resposta da requisição feita pela { captchaSend }, em caso de sucesso
+ * o email é enviado e as informações do usuario e da mensagem salvas no BD. Em caso de falha, é exibido um alerta, avisando
+ * que a verificação do captcha não foi aceita.
+ *
+ * MAIS INFOS (DOCS): https://developers.google.com/recaptcha/intro
  */
 
 $(function () {
@@ -100,8 +136,14 @@ const validarCampos = () => {
     }
 
     if (arrErros.length <= 0) {
-        enviarDados()
+        let { captchaLoaded } = localStorage
+
+        if(captchaLoaded) {
+            grecaptcha.execute();
+        }else
+            console.warn('arquivos do captcha não foram carregados...')
     } else {
+        console.warn('problema com o preenchimento dos campos, exibindo erros ...')
         exibirMensagem(arrErros)
     }
 }
