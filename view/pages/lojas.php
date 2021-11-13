@@ -1,4 +1,5 @@
 <?php require_once __DIR__.'/../../assets/vendor/autoload.php'; ?>
+<?php use Source\Class\MysqlCRUD; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,110 +17,63 @@
         <section class="img-wrapper"></section>
 
         <section class="enderecos-lojas">
-            <div class="table-line">
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
 
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
+            <?php
+
+            $mysql = new MysqlCRUD();
+            $acessarLojasCadastradas = $mysql->selectFromDB(['*'],'lojas');
+            $lojasCadastradas = $acessarLojasCadastradas->fetchAll(PDO::FETCH_ASSOC);
+            $qtdLojas = count($lojasCadastradas);
+
+            if($qtdLojas === 0){
+                ?>
+                    <div class="warning">
+                        <p>Nenhuma loja encontrada...</p>
                     </div>
-                </div>
+                <?php
+            }
 
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
+            $lineMax = 3;
+            for ($l=0; $l < $qtdLojas; $l++){
+                $loja = $lojasCadastradas[$l];
+                $nomeLoja = $loja['nm_Loja'];
+                $enderecoLoja = $loja['ds_Endereco'];
+                $telefoneLoja = $loja['cd_Telefone'];
+                $celularLoja = $loja['cd_Celular'];
 
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
+                $celularLojaFormatado = str_replace(['-','(', ')', ' '], '', $celularLoja);
+                $linkWhats = "https://wa.me/55{$celularLojaFormatado}";
+
+                if($lineMax === 3){
+                    ?>
+                        <div class="table-line">
+                    <?php
+                }
+                $lineMax--;
+                ?>
+
+                    <div class="table-column">
+                        <p><?php echo $nomeLoja; ?></p>
+                        <p><?php echo $enderecoLoja; ?></p>
+                        <p><i class="fas fa-phone-alt"></i> <?php echo $telefoneLoja; ?></p>
+                        <p><i class="fab fa-whatsapp"></i> <?php echo $celularLoja; ?></p>
+
+                        <div>
+                            <a href="<?php echo $linkWhats; ?>" target="_blank"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
+                <?php
 
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
+                if($lineMax === 0){
+                    $lineMax = 3;
+                ?>
                     </div>
-                </div>
-            </div>
+                <?php
+                }
+            }
 
-            <div class="table-line">
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
-
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
-                    </div>
-                </div>
-
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
-
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
-                    </div>
-                </div>
-
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
-
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="table-line">
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
-
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
-                    </div>
-                </div>
-
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
-
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
-                    </div>
-                </div>
-
-                <div class="table-column">
-                    <p>Santos</p>
-                    <p>Rua João Pessoa, Centro</p>
-                    <p><i class="fas fa-phone-alt"></i> (13) 3232-2323</p>
-                    <p><i class="fab fa-whatsapp"></i> (13) 99770-7070</p>
-
-                    <div>
-                        <button><i class="fas fa-calendar-alt"></i> Agendar</button>
-                    </div>
-                </div>
-            </div>
+            ?>
         </section>
     </main>
 

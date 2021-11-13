@@ -61,7 +61,9 @@ div.table-column div{
     justify-content: center;
 }
 
-div.table-column button{
+div.table-column a{
+    text-decoration: none;
+    text-align: center;
     width: 200px;
     padding: 10px;
     cursor: pointer;
@@ -73,6 +75,11 @@ div.table-column button{
     font-weight: bold;
 }
 
-div.table-column button i{
+div.table-column a i{
     margin-right: 10px;
+}
+
+div.warning{
+    width: 100%;
+    font-size: 1.3em;
 }
