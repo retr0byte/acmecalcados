@@ -13,7 +13,7 @@ footer {
     color: #707070;
 }
 
-#cima div:first-child span:last-of-type {
+#cima div:nth-of-type(2) span:last-of-type {
     margin-top: 30px;
 }
 
