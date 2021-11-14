@@ -1,5 +1,5 @@
 <?php require_once __DIR__.'/../assets/vendor/autoload.php'; ?>
-
+<?php use Source\Class\MysqlCRUD; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,11 +28,28 @@
 			</div>
 			<div class="box-img-mais-vendidos">
 				
-				<div class="img-mais-vendidos">
+				<?php  
+				$mysql = new MysqlCRUD();
+				$comando = $mysql->selectFromDB(['*'], 'Promocoes', 'ORDER BY cd_Promocao DESC LIMIT 2');
+				$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+				$linkLoja = PATH_LINKS . "/view/pages/lojas.php";
+				if(count($resultado) != 0) {
+					foreach ($resultado as $resultado) {
+						$caminhoImg = PATH_LINKS . "/assets/images/" . $resultado['ds_PathImg'];
+						echo "<div class='img-mais-vendidos' style='background: url($caminhoImg); width: 330px;height: 50vh;background-size: cover;background-position: 60% 85%;display: flex;margin: 10px 6vh;flex-direction: column-reverse;'>";
 
-					
+						echo "<div class='container-img-vendidos'>";
+						echo "<div class='banner-conteudo-vendidos'>";
+						echo "<span>" . $resultado['nm_Promocao'] . "</span>";
+										
+						echo "<a href='".$linkLoja."'>" . "Encontrar loja mais próxima" . "</a>";
+						echo "</div>";
+						echo "</div>";
 
-				</div>
+						echo "</div>";
+					}
+				}
+				?>
 
 			</div>
 		</div>
