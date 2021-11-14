@@ -125,11 +125,57 @@
 				</div>
 			</section>
 
+		</div>
+
+		<div class="faq">
+			<div class="title-faq"><h2>Perguntas frequentes</h2></div>
+			<div class="faqItem altera">
+				<div class="title-icon">
+					<span class="span-faq">Quais as formas de pagamento?</span>
+					<i class="fas fa-chevron-down altera"></i>
+				</div>
+				<p class="p-faq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus.</p>
+			</div>
+
+			<div class="faqItem">
+				<div class="title-icon">
+					<span class="span-faq">Como devolver um produto?</span>
+					<i class="fas fa-chevron-down altera"></i>
+				</div>
+				<p class="p-faq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus.</p>
+			</div>
+
+			<div class="faqItem">
+				<div class="title-icon">
+					<span class="span-faq">Qual o prazo para devolução?</span>
+					<i class="fas fa-chevron-down altera"></i>
+				</div>
+				<p class="p-faq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus.</p>
+			</div>
+
+			<div class="faqItem">
+				<div class="title-icon">
+					<span class="span-faq">Como trocar um produto?</span>
+					<i class="fas fa-chevron-down altera"></i>
+				</div>
+				<p class="p-faq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus.</p>
+			</div>
+
+			<div class="faqItem">
+				<div class="title-icon">
+					<span class="span-faq">Qual o prazo para troca?</span>
+					<i class="fas fa-chevron-down altera"></i>
+				</div>
+				<p class="p-faq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus.</p>
+			</div>
+
 		</div>	
 
 	</main>
 
 	<?php  require_once PATH.'/../view/layout/global/footer.php'; ?>
+	<script src="<?php echo PATH_LINKS ?>/assets/libs/jQuery-mask/jquery.mask.min.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/js/faq.js"></script>
 </body>
 </html>
 
