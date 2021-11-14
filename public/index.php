@@ -24,31 +24,13 @@
 		</div>
 		<div class="mais-vendidos">
 			<div class="text-vendidos">
-				<p>Mais vendidos</p>
+				<p>Em promoção</p>
 			</div>
 			<div class="box-img-mais-vendidos">
 				
 				<div class="img-mais-vendidos">
 
-					<div class="container-img-vendidos">
-						<div class="banner-conteudo-vendidos">
-							<span>Bota de trilha - 123 Lorem Ipsum</span>
-							
-							<a href="#">Encontrar loja mais próxima</a>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="img-mais-vendidos">
-
-					<div class="container-img-vendidos">
-						<div class="banner-conteudo-vendidos">
-							<span>Tênis Nike 12345 - Lorem Ipsum</span>
-
-							<a href="#">Encontrar loja mais próxima</a>
-						</div>
-					</div>
+					
 
 				</div>
 
