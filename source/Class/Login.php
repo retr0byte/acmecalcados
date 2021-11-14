@@ -27,17 +27,20 @@ class Login
 
 	public function validaLogin() {
 		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDb(['*'], 'Usuarios', 'WHERE nm_Usuario = ? and ds_Senha = ?', [$this->nm_usuario, $this->nm_senha]);
+		$comando = $mysql->selectFromDb(['cd_Usuario'], 'Usuarios', 'WHERE nm_Usuario = ? and ds_Senha = ?', [$this->nm_usuario, $this->nm_senha]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
-			session_start();
-			$_SESSION["codigo"] = $resultado["cd_Usuario"];
-			$_SESSION["nome"] = $this->nm_usuario;
-			$_SESSION["senha"] = $this->nm_senha;
-			return [
-				"status" => 200,
-				"message" => "logado com sucesso"
-			];
+			foreach ($resultado as $resultado) {
+				session_start();
+				@$_SESSION["codigo"] = $resultado["cd_Usuario"];
+				$_SESSION["nome"] = $this->nm_usuario;
+				$_SESSION["senha"] = $this->nm_senha;
+				return [
+					"status" => 200,
+					"message" => "logado com sucesso"
+				];
+			}
+			
 		}
 		else {
 			return [
@@ -56,5 +59,7 @@ class Login
 			];
 	}
 }
+
+
 
 ?>

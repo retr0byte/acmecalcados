@@ -10,6 +10,7 @@ class Usuarios
 	private $nm_usuario;
 	private $nm_acesso;
 	private $ds_senha;
+	private $ds_imagem_usuario;
 
 	public function set_cd_usuario($cd_usuario) {
 		$this->cd_usuario = $cd_usuario;
@@ -27,9 +28,13 @@ class Usuarios
 		$this->ds_senha = $ds_senha;
 	}
 
+	public function set_ds_imagem_usuario($ds_imagem_usuario) {
+		$this->ds_imagem_usuario = $ds_imagem_usuario;
+	}
+
 	public function formEditUsuario($u) {
 		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDB(['*'], 'Usuarios', 'WHERE ds_Senha = ?', [$u]);
+		$comando = $mysql->selectFromDB(['*'], 'Usuarios', 'WHERE cd_Usuario = ?', [$u]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
@@ -60,6 +65,28 @@ class Usuarios
 				echo "</div>";
 				echo "</div>";
 			}
+		}
+	}
+
+	public function editarUsuario($u) {
+
+		$mysql = new MysqlCRUD();
+
+		$comando = $mysql->updateOnDB('usuarios','nm_Usuario = ?, nm_Acesso = ?, ds_PathImg = ?','cd_Usuario = ?', [$this->nm_usuario, $this->nm_acesso , $this->ds_imagem_usuario,$u]);
+
+		
+
+		if($comando) {
+			return [
+				"status" => 200,
+				"message" => "sucesso"
+			];
+		}
+		else {
+			return [
+				"status" => 500,
+				"message" => "erro"
+			];
 		}
 	}
 }

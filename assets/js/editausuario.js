@@ -2,13 +2,15 @@
 $(function(){ // equivalente do window.onload
     $('#form_edit_usuario').submit(function(e){
         e.preventDefault();
-        let nm_promocao = $('#nm_usuario').val()
+        let nm_usuario = $('#nm_usuario').val()
         let nm_acesso = $('#nm_acesso').val()
         let ds_PathImg = $('input[type=file]')[0].files[0];
         ds_PathImg = ds_PathImg.name 
         let parameter = new URLSearchParams(window.location.search);
+        let u = $('#btn_cd').attr('editcd')
+     
 
-        enviarEditarUsuaeio({ nm_usuario, nm_acesso, ds_PathImg})
+        enviarEditarUsuario({ nm_usuario, nm_acesso, ds_PathImg, u})
     })
 })
 
@@ -23,7 +25,7 @@ const enviarEditarUsuario = obj => {
 
         if(response.status === 200) {
             console.log("foi")
-            location.replace(`${location.origin}/view/pages/painelUpdateUsuario.php`)
+            location.replace(`${location.origin}/view/pages/painelUpdateUsuarios.php`)
         }
         else {
             $('#new_promocao_status').html(response.message)

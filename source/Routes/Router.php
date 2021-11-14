@@ -146,4 +146,13 @@ class Router
         return $loja->editarLoja($dataPkg['u']);
     }
 
+    public function editaUsuario($dataPkg): array
+    {
+        $usuario = new Usuarios();
+        $usuario->set_nm_usuario($dataPkg['nm_usuario']);
+        $usuario->set_nm_acesso($dataPkg['nm_acesso']);
+        $usuario->set_ds_imagem_usuario($dataPkg['ds_PathImg']);
+        return $usuario->editarUsuario($dataPkg['u']);
+    }
+
 }
