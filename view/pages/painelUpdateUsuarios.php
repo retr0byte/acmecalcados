@@ -24,7 +24,7 @@
 			<section>
 				<div class="centroListagem">
 					<div class="tituloListagem">
-						<h1>Adicionar registro:</h1>
+						<h1>Atualizar usuario:</h1>
 					</div>
 
 					<div class="itensListagem">

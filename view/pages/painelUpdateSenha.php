@@ -24,24 +24,24 @@
 			<section>
 				<div class="centroListagem">
 					<div class="tituloListagem">
-						<h1>Adicionar registro:</h1>
+						<h1>Alterar senha de acesso:</h1>
 					</div>
 
 					<div class="itensListagem">
 						<div class="formuNewPromo">
-							<form method="POST" action="#" id="form_edit_usuario" enctype="multipart/form-data">
+							<form method="POST" action="#" id="form_edit_senha" enctype="multipart/form-data">
 								<?php  
 								if(isset($_SESSION["codigo"])) {
 									$usuario = new Usuarios();
 									$code = $_SESSION["codigo"];
-									$usuario->formEditUsuario($code);
+									$usuario->formEditSenha($code);
 									// var_dump($_SESSION["codigo"]);
 								}	
 								
 								?>
 								<div class="box-form-geral">
 									<div>
-										<button type="submit" editcd="<?php echo $_SESSION["codigo"]; ?>" id="btn_cd">Atualizar registro</button>
+										<button type="submit" editcd="<?php echo $_SESSION["codigo"]; ?>" id="btn_cd">Atualizar senha</button>
 								
 										<p style="display: none" id="new_promocao_status"></p>
 									</div>
