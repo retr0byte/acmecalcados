@@ -1,0 +1,170 @@
+@import url('main.css');
+.menu-lateral {
+	width: 20vw;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+
+.parte-menu:nth-child(1) {
+	display: flex;
+	flex-direction: column;
+}
+
+.logo-lateral {
+	display: flex;
+	justify-content: center;
+	margin: 50px 0px;
+}
+
+.itens-lateral {
+	display: flex;
+	
+}
+
+.img-lateral {
+	width: 90px;
+    height: 35px;
+}
+
+.itens-lateral ul {
+	position: relative;
+	left: 20px;
+	width: 80%;
+}
+
+.itens-lateral ul li {
+	margin: 5px 0px;
+	list-style: none;
+	padding: 5px 0px 5px 20px;
+	margin-bottom: 20px;
+}
+
+.itens-lateral ul li a {
+	text-decoration: none;
+}
+
+.itens-lateral ul li a span {
+	color: #0D65D9;
+}
+ 
+.fa-home {
+	margin-right: 10px;
+	color: #0D65D9;
+}
+
+.fa-cog {
+	margin-right: 10px;
+	color: #0D65D9;
+}
+
+.fa-power-off {
+	color: #D9450D;
+	margin: 0px 10px 0px 30px
+}
+.parte-menu:nth-child(2) {
+    position: absolute;
+    bottom: 10%;
+}
+
+.parte-menu:nth-child(2) a span {
+	color: #D9450D;
+	text-decoration: none;
+}
+
+.parte-menu:nth-child(2) a {
+	text-decoration: none;
+}
+
+main {
+	display: flex;
+	padding: 0px;
+	margin: 0px;
+}
+
+.conteudoFull {
+	background-color: #F4FAFF;
+	width: 80vw;
+	border-bottom: solid thin #DCDCDC;
+	/*border-radius: 50px 0px 0px 50px;*/
+}
+
+.icone-adm {
+	border: 1px solid #E4E4E4;
+	display: flex;
+    background-color: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #0D65D9;
+}
+
+.squad-adm {
+	display: flex;
+    justify-content: end;
+}
+
+.squad-adm-info {
+	display: flex;
+    width: 250px;
+    border: 1px solid #E4E4E4;
+    border-radius: 10px;
+    opacity: 1;
+    padding: 10px;
+    align-items: center;
+    margin: 30px;
+    background-color: white;
+}
+
+.squad-adm-info span {
+	margin-left: 10px;
+	font-weight: normal;
+}
+
+.fa-chevron-right {
+	cursor: pointer;
+	font-size: 20px;
+    margin-left: 40px;
+    color: #0D65D9;
+}
+
+.sub-menu-adm {
+	background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 200px;
+}
+
+.sub-item-adm {
+	color: #5C9DF2;
+	text-decoration: none;
+}
+
+.sub-menu-adm div {
+	margin: 10px 20px;
+}
+
+.fa-address-card {
+	margin-right: 10px;
+	color: #5C9DF2;
+}
+
+.fa-shield-alt {
+	margin-right: 10px;
+	color: #5C9DF2;
+}
+
+.girar {
+	transform: rotate(90deg);
+}
+
+.voltar {
+	transform: rotate(0deg);
+}

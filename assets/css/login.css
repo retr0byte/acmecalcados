@@ -1,0 +1,72 @@
+@import url('main.css');
+
+.centro-login {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+
+.sessao-login:nth-child(1) {
+	margin: 0px auto;
+}
+
+.sessao-login:nth-child(1) h1 {
+	color: #0D65D9;
+	opacity: 1;
+	font-family: Montserrat;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.painel-login {
+	background-color: #fff;
+	border: 1px solid #707070;
+	opacity: 1;
+	max-width: 450px;
+	margin: 60px auto;
+	display: flex;
+	justify-content: center;
+}
+
+.painel-login label {
+	color: #0D65D9;
+	opacity: 1;
+	font-family: Montserrat;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.painel-login input {
+	width: 370px;
+	padding: 10px;
+	font-family: Montserrat;
+	border: 1px solid #707070;
+    opacity: 1;
+    font-size: 15px;
+    outline: 0;
+}
+
+.painel-login p {
+	margin: 40px;
+}
+
+.painel-login button {
+	height: 40px;
+	width: 125px;
+	cursor: pointer;
+	font-weight: bold;
+	color: #fff;
+	background-color: #0D65D9;
+	opacity: 1;
+	font-family: Montserrat;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+.painel-login ion-icon {
+	font-size: 20px;
+	margin-left: 10px;
+}

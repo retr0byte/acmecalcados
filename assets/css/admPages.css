@@ -1,0 +1,191 @@
+@import url('main.css');
+
+/*painel interno*/
+
+.centro-pag {
+	margin: 50px;
+}
+
+.centro-pag p {
+	font-family: Montserrat;
+	color: #0D65D9;
+	font-size: 20px;
+}
+
+#divUniao {
+	background-color: #F4FAFF;
+}
+
+/**/
+
+/*painel listagem/exclusao*/
+
+.btnListagem a {
+	border-radius: 12px;
+    padding: 20px 30px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #0D65D9;
+    font-size: 18px;
+    font-family: Montserrat;	
+    color:  #0D65D9;
+}
+
+.btnListagem a:hover {
+	color: #F4FAFF;
+	background-color: #0D65D9
+}
+
+.fa-plus-circle {
+	margin-left: 15px;
+    font-size: 20px;
+}
+
+.novoItemListagem {
+	display: flex;
+    justify-content: end;
+    margin: 50px;
+}
+
+.itensListagem {
+	background: #fff;
+    
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-radius: 7px;
+    margin: auto;
+}
+
+
+.centroListagem {
+	display: flex;
+	flex-direction: column;
+}
+
+.tituloListagem {
+	margin: 50px;
+}
+
+.tituloListagem h1 {
+	color: #0D65D9;
+	font-weight: bold;
+}
+
+.itensListagem table {
+	border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+
+.itensListagem td{
+	border-top: 1px solid #0D65D9;
+	border-bottom: 1px solid #0D65D9;
+  	text-align: center;
+  	padding: 8px;
+}
+
+.itensListagem th {
+	text-align: center;
+  	padding: 8px;
+  	color: #0D65D9;
+  	font-weight: bold;
+}
+
+.fa-pencil-alt {
+	color: #5C9DF2;
+	font-size: 25px;
+}
+
+.fa-trash-alt {
+	color: #D9450D;
+	font-size: 25px;
+}
+
+/**/
+
+/*painel edicao*/
+
+
+/**/
+
+/*painel criacao*/
+
+.formuNewPromo {
+	margin: 10px auto;
+}
+
+.box-form-geral input[type="text"]{
+	width: 400px;
+    padding: 12px;
+    outline: 0;
+    border-radius: 7px;
+    border: solid 1px #707070;
+    margin: 10px 0px 10px 0px; 
+}
+
+.box-form-geral {
+	display: flex;
+}
+
+.box-form-geral div {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+}
+
+.box-form-geral input[type="file"] {
+	height: 40px;
+	width: 450px;
+	color: #0D65D9;
+	background-color: #fff;
+	opacity: 1;
+	font-family: Montserrat;
+	border: solid 1px #0D65D9;
+	width: 300px;
+    padding: 12px;
+    outline: 0;
+    border-radius: 7px;
+    border: solid 1px #707070;
+    margin: 10px 0px 10px 0px;
+}
+
+label {
+	color: #707070;
+}
+
+button {
+	height: 40px;
+	width: 200px;
+	cursor: pointer;
+	font-weight: bold;
+	color: #0D65D9;
+	background-color: #fff;
+	opacity: 1;
+	font-family: Montserrat;
+	border: solid 1px #0D65D9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	border-radius: 7px;
+}
+
+button:hover {
+	color: #fff;
+	background-color: #0D65D9;
+}
+
+/**/
+
+/*painel minha conta*/
+
+
+/**/
+
+/*painel trocar senha*/
+
+
+/**/
+
+
