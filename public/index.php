@@ -8,6 +8,12 @@
 	<link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/home.css">
     <title>ACME Calçados | Home</title>
 
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -28,7 +34,7 @@
 			</div>
 			<div class="box-img-mais-vendidos">
 				
-				<?php  
+				<?php 
 				$mysql = new MysqlCRUD();
 				$comando = $mysql->selectFromDB(['*'], 'Promocoes', 'ORDER BY cd_Promocao DESC LIMIT 2');
 				$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
@@ -63,7 +69,7 @@
 				<h2>O que nossos clientes tem a dizer?</h2>
 			</div>
 
-			<div class="container-depoimentos">
+			<div class="container-depoimentos owl-carousel">
 
 				<div class="folha-depoimento">
 					<div class="imagem-depoimento">
@@ -88,10 +94,17 @@
 					<div class="nome-depoimento"><span>João</span></div>
 					<div class="title-depoimentos"><p><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus. Integer luctus nisi ut quam euismod, id ultricies nunc convallis.</p></div>
 				</div>
-
-
 
 			</div>
+
+			<script>
+				$(".container-depoimentos").owlCarousel({
+					loop: true,
+					autoplay: true,
+					autoplayTimeout: 2000,
+					autoplayHoverPause: true,
+				});
+			</script>
 		</section>
 
 		<!-- parceiros -->
