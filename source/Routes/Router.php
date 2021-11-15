@@ -12,6 +12,7 @@ use Source\Class\Parceiros;
 use Source\Class\Lojas;
 use Source\Class\Usuarios;
 use Source\Class\UploadArquivos;
+use Source\Class\Lead;
 
 class Router
 {
@@ -153,6 +154,12 @@ class Router
         $usuario->set_nm_acesso($dataPkg['nm_acesso']);
         $usuario->set_ds_imagem_usuario($dataPkg['ds_PathImg']);
         return $usuario->editarUsuario($dataPkg['u']);
+    }
+
+    public function enviarLead($dataPkg): array{
+        $lead = new Lead();
+        $lead->set_ds_email($dataPkg['nm_email']);
+        return $lead->enviarEmail();
     }
 
 }

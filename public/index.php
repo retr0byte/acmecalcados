@@ -14,6 +14,8 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+	<script src="<?php echo PATH_LINKS ?>/assets/js/crialead.js"></script>
+
 </head>
 
 <body>
@@ -151,8 +153,8 @@
 				<div class="title-newsletter"><span>Receba ofertas em primeira mão:</span></div>
 				
 				<div class="form-newsletter">
-					<form method="POST" class="form-n">
-						<input type="email" name="email_newsletter" placeholder="Seu melhor e-mail:">
+					<form method="POST" class="form-n" id="form_newsletter" action="#">
+						<input type="email" name="nm_email" id="nm_email" placeholder="Seu melhor e-mail:">
 						<input type="submit" value="Cadastrar">
 					</form>
 				</div>

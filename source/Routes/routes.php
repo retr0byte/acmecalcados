@@ -106,6 +106,12 @@ function defineRoute($route): string {
             $result = json_encode($router->editaUsuario($_POST['dataPkg']));
             
             break;
+        
+        case 'crialead':
+            $router = new Router();
+            $result = json_encode($router->enviarLead($_POST['dataPkg']));
+            
+            break;
 
         default:
             // em caso de não vir rota nenhuma
