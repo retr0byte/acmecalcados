@@ -112,33 +112,25 @@
 			</div>
 
 			<div class="container-parceiros owl-carousel">
-				<div class="item-parceiros">
-					<div class="circulo-parceiros"></div>
-					<div>
-						<span>PARCEIRO</span>
-					</div>
-				</div>
 
-				<div class="item-parceiros">
-					<div class="circulo-parceiros"></div>
-					<div>
-						<span>PARCEIRO</span>
-					</div>
-				</div>
-				
-				<div class="item-parceiros">
-					<div class="circulo-parceiros"></div>
-					<div>
-						<span>PARCEIRO</span>
-					</div>
-				</div>
+				<?php
+					$mysql = new MysqlCRUD();
+					$comando = $mysql->selectFromDb(['*'], 'parceiros');
+					$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+					if(count($resultado) != 0){
+						foreach ($resultado as $resultado){
+							echo "<div class='item-parceiros'>";
+							$caminhoImg = PATH_LINKS . "/assets/images/" . $resultado['ds_PathImg'];
 
-				<div class="item-parceiros">
-					<div class="circulo-parceiros"></div>
-					<div>
-						<span>PARCEIRO</span>
-					</div>
-				</div>
+							echo "<div class='circulo-parceiros'><img src='".$caminhoImg."'></div>";
+
+							echo "<div>"."<span>".$resultado["nm_Parceiro"]."</span>"."</div>";
+							echo "</div>";
+						}
+					}
+				?>
+
+
 
 			</div>	
 			
