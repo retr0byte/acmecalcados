@@ -209,6 +209,11 @@
 	margin-bottom: 40px;
 }
 
+.item-parceiros{
+	display:flex;
+	align-items: center;
+}
+
 .title-parceiros {
 	margin: auto;
 }

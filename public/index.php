@@ -111,13 +111,45 @@
 				<h2>Parceiros</h2>
 			</div>
 
-			<div class="container-parceiros">
-				<div class="circulo-parceiros"></div>
-				<div class="circulo-parceiros"></div>
-				<div class="circulo-parceiros"></div>
-				<div class="circulo-parceiros"></div>
-			</div>	
+			<div class="container-parceiros owl-carousel">
+				<div class="item-parceiros">
+					<div class="circulo-parceiros"></div>
+					<div>
+						<span>PARCEIRO</span>
+					</div>
+				</div>
 
+				<div class="item-parceiros">
+					<div class="circulo-parceiros"></div>
+					<div>
+						<span>PARCEIRO</span>
+					</div>
+				</div>
+				
+				<div class="item-parceiros">
+					<div class="circulo-parceiros"></div>
+					<div>
+						<span>PARCEIRO</span>
+					</div>
+				</div>
+
+				<div class="item-parceiros">
+					<div class="circulo-parceiros"></div>
+					<div>
+						<span>PARCEIRO</span>
+					</div>
+				</div>
+
+			</div>	
+			
+			<script>
+				$(".container-parceiros").owlCarousel({
+					loop: true,
+					autoplay: true,
+					autoplayTimeout: 2000,
+					autoplayHoverPause: true,
+				});
+			</script>
 		</section>
 
 		<!-- newsletter -->
