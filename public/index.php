@@ -69,31 +69,27 @@
 				<h2>O que nossos clientes tem a dizer?</h2>
 			</div>
 
-			<div class="container-depoimentos owl-carousel">
+			<div class="container-depoimentos owl-carousel"> 
 
-				<div class="folha-depoimento">
-					<div class="imagem-depoimento">
-						<img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem">
-					</div>
-					<div class="nome-depoimento"><span>João</span></div>
-					<div class="title-depoimentos"><p><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus. Integer luctus nisi ut quam euismod, id ultricies nunc convallis.</p></div>
-				</div>
+				<?php
+					$mysql = new MysqlCRUD();
+					$comando = $mysql->selectFromDb(['*'], 'depoimentos');
+					$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+					if(count($resultado) != 0){
+						foreach ($resultado as $resultado){
+							echo "<div class='folha-depoimento'>";
+							echo "<div class='imagem-depoimento'>";
+							$caminhoImg = PATH_LINKS . "/assets/images/" . $resultado['ds_PathImg'];
+							echo "<img src='".$caminhoImg."' alt='imagem'>";
+							echo "</div>";
+							echo "<div class='nome-depoimento'>" . "<span>" . $resultado["nm_Depoimento"] . "</span>" . "</div>";
+							echo "<div class='title-depoimentos'>"."<p>".'<span>"</span>'.$resultado["ds_Depoimento"]."</p>"."</div>";
+							echo "</div>";
+						}
+					}
+				?>
 
-				<div class="folha-depoimento">
-					<div class="imagem-depoimento">
-						<img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem">
-					</div>
-					<div class="nome-depoimento"><span>João</span></div>
-					<div class="title-depoimentos"><p><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus. Integer luctus nisi ut quam euismod, id ultricies nunc convallis.</p></div>
-				</div>
-
-				<div class="folha-depoimento">
-					<div class="imagem-depoimento">
-						<img src="<?php echo PATH_LINKS ?>/assets/images/homem-jovem.jpg" alt="homem jovem">
-					</div>
-					<div class="nome-depoimento"><span>João</span></div>
-					<div class="title-depoimentos"><p><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nibh tincidunt, pulvinar mauris non, ornare metus. Integer luctus nisi ut quam euismod, id ultricies nunc convallis.</p></div>
-				</div>
+				
 
 			</div>
 
