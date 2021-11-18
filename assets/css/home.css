@@ -367,3 +367,13 @@
 	transform: rotate(0deg);
 }
 
+/*Responsive*/
+@media (max-width: 850px) {
+    .box-img-mais-vendidos {
+        flex-direction: column;
+    }
+
+	.banner-conteudo{
+		top:0px;
+	}
+}

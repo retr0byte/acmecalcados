@@ -48,3 +48,26 @@ section.item-wrapper div.text-content h2 {
 section.item-wrapper div.text-content p {
     text-align: justify;
 }
+
+/*Responsive*/
+@media (max-width: 700px){
+    section.item-wrapper{
+        flex-direction: column-reverse;
+    }
+
+    section.item-wrapper:nth-child(3){
+        flex-direction: column;
+    }
+
+    section.item-wrapper div.img-wrapper img {
+        box-shadow: none;
+    }
+
+    section.item-wrapper div.text-content{
+        width: 100%;
+    }
+
+    section.item-wrapper div.img-wrapper {
+        width: 100%;
+    }
+}

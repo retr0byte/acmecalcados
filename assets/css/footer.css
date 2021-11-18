@@ -11,6 +11,7 @@ footer {
     padding: 1rem 2rem 8rem 2rem;
     font-size: 20px;
     color: #707070;
+    flex-direction: column;
 }
 
 #cima div:nth-of-type(2) span:last-of-type {
@@ -26,6 +27,7 @@ footer {
     font-size: 20px;
     font-family: Montserrat;
     color: #707070;
+    flex-direction: column;
 }
 
 #cima div {
@@ -51,4 +53,11 @@ footer ul li a {
 .fab,
 .far {
     margin-right: 10px;
+}
+
+/*Responsive*/
+@media (min-width: 580px){
+    #cima, #baixo{
+        flex-direction: row;
+    }
 }

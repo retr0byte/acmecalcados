@@ -24,16 +24,21 @@ main.lojas section.img-wrapper {
 main.lojas section.enderecos-lojas{
     width: 100%;
     margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
 }
 
 section.enderecos-lojas div.table-line{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 section.enderecos-lojas div.table-column{
-    width: calc((100% / 3) - 2%);
+    /*width: calc((100% / 3) - 2%);*/
     margin: 1.5% 0.5%;
     border: 1px solid var(--unnamed-color-707070);
     padding: 30px;
