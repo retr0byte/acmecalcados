@@ -28,6 +28,9 @@
 					</div>
 
 					<div class="itensListagem">
+						<section id="section-icon-senha">
+							<i class="fas fa-eye-slash" id="bt_pass"></i>
+						</section>
 						<div class="formuNewPromo">
 							<form method="POST" action="#" id="form_edit_senha" enctype="multipart/form-data">
 								<?php  
@@ -35,17 +38,18 @@
 									$usuario = new Usuarios();
 									$code = $_SESSION["codigo"];
 									$usuario->formEditSenha($code);
-									// var_dump($_SESSION["codigo"]);
 								}	
 								
 								?>
 								<div class="box-form-geral">
 									<div>
 										<button type="submit" editcd="<?php echo $_SESSION["codigo"]; ?>" id="btn_cd">Atualizar senha</button>
-								
+									</div>
+								</div>
+								<div class="box-form-geral">
+									<div>
 										<p style="display: none" id="new_promocao_status"></p>
 									</div>
-									
 								</div>
 							</form>
 							
@@ -59,7 +63,8 @@
 	
     <script src="<?php echo PATH_LINKS ?>/assets/libs/jQuery-mask/jquery.mask.min.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/painel_usuario.js"></script>
-    <script src="<?php echo PATH_LINKS ?>/assets/js/editausuario.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/js/editasenha.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/js/password.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/sair.js"></script>
 </body>
 </html>

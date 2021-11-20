@@ -63,7 +63,7 @@
 
 .img-mais-vendidos:nth-child(1) {
 	background: url("../images/mais-vendidos-2.jpg");
-	width: 330px;
+	width: 32vw;
 	height: 50vh;
 	background-size: cover;
     background-position: 60% 85%;
@@ -358,4 +358,5 @@
 .voltar {
 	transform: rotate(0deg);
 }
+
 

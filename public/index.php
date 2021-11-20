@@ -217,6 +217,7 @@
 	<?php  require_once PATH.'/../view/layout/global/footer.php'; ?>
 	<script src="<?php echo PATH_LINKS ?>/assets/libs/jQuery-mask/jquery.mask.min.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/faq.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/js/menu_bar.js"></script>
 </body>
 </html>
 

@@ -6,7 +6,6 @@ $(function(){ // equivalente do window.onload
         let nm_acesso = $('#nm_acesso').val()
         let ds_PathImg = $('input[type=file]')[0].files[0];
         ds_PathImg = ds_PathImg.name 
-        let parameter = new URLSearchParams(window.location.search);
         let u = $('#btn_cd').attr('editcd')
      
 

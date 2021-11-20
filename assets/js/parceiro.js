@@ -3,12 +3,19 @@ $(function(){ // equivalente do window.onload
     $('#form_new_parceiro').submit(function(e){
         e.preventDefault();
 
+        const fileInput = document.querySelector("#ds_PathImg");
+        
         let nm_parceiro = $('#nm_parceiro').val()
-        let ds_PathImg = $('input[type=file]')[0].files[0];
-        ds_PathImg = ds_PathImg.name 
+        let formData = new FormData();
+        let files = $('ds_PathImg')
+        formData.append("file", files)
 
-        enviarInfoParceiro({ nm_parceiro, ds_PathImg })
-        console.log(ds_PathImg);
+        fileInput.addEventListener("change", event => {
+            const files = event.target.files[0];
+        });
+        enviarInfoParceiro({ nm_parceiro, files})
+
+        // enviarInfoParceiro({ nm_parceiro, formData })
     })
 })
 

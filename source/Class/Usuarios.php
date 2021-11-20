@@ -53,26 +53,80 @@ class Usuarios
 				echo "</div>";
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<label for='img'>" . "IMAGEM" . "</label>";
-				$pathimage = PATH_LINKS . "/assets/images/" . $resultado['ds_PathImg'];
-				echo "<img src='".$pathimage."'>";
+				echo "<img id='file_upload'>";
 				echo "</div>";
 				echo "</div>";
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='ds_PathImg'>" . "NOVA IMAGEM?" . "</label>";
-				echo "<input type='file' name='ds_PathImg' id='ds_PathImg' required>";
+				echo "<input type='file' name='ds_PathImg' onchange='readURL(this)' id='ds_PathImg' required>";
 				echo "</div>";
 				echo "</div>";
 			}
 		}
 	}
 
+
 	public function editarUsuario($u) {
 
 		$mysql = new MysqlCRUD();
 
 		$comando = $mysql->updateOnDB('usuarios','nm_Usuario = ?, nm_Acesso = ?, ds_PathImg = ?','cd_Usuario = ?', [$this->nm_usuario, $this->nm_acesso , $this->ds_imagem_usuario,$u]);
+
+		
+
+		if($comando) {
+			return [
+				"status" => 200,
+				"message" => "sucesso"
+			];
+		}
+		else {
+			return [
+				"status" => 500,
+				"message" => "erro"
+			];
+		}
+	}
+
+	public function formEditSenha($u) {
+		$mysql = new MysqlCRUD();
+		$comando = $mysql->selectFromDB(['*'], 'Usuarios', 'WHERE cd_Usuario = ?', [$u]);
+		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+		if(count($resultado) != 0) {
+			foreach ($resultado as $resultado) {
+				echo "<div class='box-form-geral'>";
+				echo "<div>";
+				echo "<label for='nm_senha'>" . "SENHA ATUAL:" . "</label>";
+													
+				echo "<input type='password' name='nm_senha' value='".$resultado['ds_Senha']."' id='nm_senha' required readonly>";
+				echo "</div>";
+				echo "</div>";
+					
+				echo "<div class='box-form-geral'>";			
+				echo "<div>";
+				echo "<label for='nm_senha_nova'>" . "NOVA SENHA:" . "</label>";
+													
+				echo "<input type='password' name='nm_senha_nova' id='nm_senha_nova' required>";
+				echo "</div>";
+				echo "</div>";
+
+				echo "<div class='box-form-geral'>";
+				echo "<div>";
+				echo "<label for='nm_senha_confirma'>" . "CONFIRMAÇÃO NOVA SENHA:" . "</label>";
+													
+				echo "<input type='password' name='nm_senha_confirma' id='nm_senha_confirma' required>";
+				echo "</div>";
+				echo "</div>";
+			}
+		}
+	}
+
+	public function editarSenha($u) {
+
+		$mysql = new MysqlCRUD();
+
+		$comando = $mysql->updateOnDB('usuarios','ds_Senha = ?','cd_Usuario = ?', [$this->ds_senha,$u]);
 
 		
 

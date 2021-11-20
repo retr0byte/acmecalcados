@@ -56,5 +56,6 @@
     <script src="<?php echo PATH_LINKS ?>/assets/js/painel_usuario.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/editadepoimento.js"></script>
 	<script src="<?php echo PATH_LINKS ?>/assets/js/sair.js"></script> 
+	<script src="<?php echo PATH_LINKS ?>/assets/js/atualizaImagem.js"></script>
 </body>
 </html>
