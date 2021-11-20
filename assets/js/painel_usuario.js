@@ -11,5 +11,9 @@ $(document).ready(function(){
 			$('.sub-menu-adm').hide();
 		}		
 	});
-				
+
+
+    var aurl = window.location.pathname;
+	$('.itens-lateral li a[href$="'+aurl+'"]').parents('li').addClass('active');
+			
 });

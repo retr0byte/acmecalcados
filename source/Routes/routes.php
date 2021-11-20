@@ -113,6 +113,12 @@ function defineRoute($route): string {
             
             break;
 
+        case 'editasenha':
+            $router = new Router();
+            $result = json_encode($router->editaSenha($_POST['dataPkg']));
+            
+            break;
+
         default:
             // em caso de não vir rota nenhuma
             $result = json_encode([ "status" => 422 ]);

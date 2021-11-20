@@ -86,8 +86,14 @@ class Promocoes
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
+				echo "<img id='file_upload'>";
+				echo "</div>";
+				echo "</div>";
+
+				echo "<div class='box-form-geral'>";
+				echo "<div>";
 				echo "<label for='imagem'>" . "IMAGEM:" . "</label>";
-				echo "<input type='file' name='ds_PathImg' id='ds_PathImg' required>";
+				echo "<input type='file' name='ds_PathImg' onchange='readURL(this)' id='ds_PathImg' required>";
 				echo "</div>";
 				echo "</div>";
 			}

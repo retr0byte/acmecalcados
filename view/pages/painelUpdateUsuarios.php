@@ -24,7 +24,7 @@
 			<section>
 				<div class="centroListagem">
 					<div class="tituloListagem">
-						<h1>Atualizar usuario:</h1>
+						<h1>Meus dados</h1>
 					</div>
 
 					<div class="itensListagem">
@@ -61,5 +61,6 @@
     <script src="<?php echo PATH_LINKS ?>/assets/js/painel_usuario.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/editausuario.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/sair.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/js/atualizaImagem.js"></script>
 </body>
 </html>

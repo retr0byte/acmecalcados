@@ -19,6 +19,7 @@ use acme_calcados;
 CREATE TABLE IF NOT EXISTS Promocoes (
      cd_Promocao int(11) AUTO_INCREMENT NOT NULL,
      nm_Promocao varchar(255) NOT NULL,
+     vl_Promocao decimal(10,2) NOT NULL,	
      ds_PathImg text NOT NULL,
      PRIMARY KEY (cd_Promocao)
 );

@@ -100,8 +100,8 @@ class Router
         $parceiro = new Parceiros();
         $parceiro->set_nm_parceiro($dataPkg['nm_parceiro']);
         $parceiro->set_ds_imagem_parceiro($dataPkg['ds_PathImg']);
-        // $upload = new UploadArquivos($dataPkg['ds_PathImg']);
-        // $upload->upload();
+        $upload = new UploadArquivos($dataPkg['ds_PathImg']);
+        $upload->upload();
         return $parceiro->criarParceiro();
     }
 
@@ -156,6 +156,14 @@ class Router
         return $usuario->editarUsuario($dataPkg['u']);
     }
 
+     public function editaSenha($dataPkg): array
+    {
+        $usuario = new Usuarios();
+        $usuario->set_ds_senha($dataPkg['nm_senha_nova']);
+        return $usuario->editarSenha($dataPkg['u']);
+
+    }
+    
     public function enviarLead($dataPkg): array{
         $lead = new Lead();
         $lead->set_ds_email($dataPkg['nm_email']);

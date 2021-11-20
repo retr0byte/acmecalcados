@@ -56,8 +56,10 @@
 	</main>	
 	
     <script src="<?php echo PATH_LINKS ?>/assets/libs/jQuery-mask/jquery.mask.min.js"></script>
-    <script src="<?php echo PATH_LINKS ?>/assets/js/painel_usuario.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/excluirpromocao.js"></script>
-    <script src="<?php echo PATH_LINKS ?>/assets/js/sair.js"></script> 
+    <script src="<?php echo PATH_LINKS ?>/assets/js/sair.js"></script>
+    <script src="<?php echo PATH_LINKS ?>/assets/js/painel_usuario.js"></script>
+    
+
 </body>
 </html>
