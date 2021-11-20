@@ -234,14 +234,22 @@
 }	
 
 .circulo-parceiros {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin: 10px 50px;
 	border: 1px solid #707070;
 	opacity: 1;
+	display: flex;
+	align-items: center;
+
 }
 
+.circulo-parceiros img{
+	width: 90px;
+	height: 40px;
+	margin: 10px;
+}
 
 /*newsletter*/
 
@@ -359,4 +367,13 @@
 	transform: rotate(0deg);
 }
 
+/*Responsive*/
+@media (max-width: 850px) {
+    .box-img-mais-vendidos {
+        flex-direction: column;
+    }
 
+	.banner-conteudo{
+		top:0px;
+	}
+}

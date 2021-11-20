@@ -91,3 +91,18 @@ section.cta span {
 section.cta span i{
     margin-right: 15px;
 }
+
+/*Responsive*/
+@media (max-width: 850px) {
+    .description{
+        flex-direction: column;
+    }
+
+    section.description div.inner-wrapper{
+        width: 100%;
+    }
+
+    section.description div.inner-wrapper:last-child img{
+        width: 400px;
+    }
+}

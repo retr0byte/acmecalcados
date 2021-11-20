@@ -12,6 +12,7 @@ use Source\Class\Parceiros;
 use Source\Class\Lojas;
 use Source\Class\Usuarios;
 use Source\Class\UploadArquivos;
+use Source\Class\Lead;
 
 class Router
 {
@@ -160,6 +161,13 @@ class Router
         $usuario = new Usuarios();
         $usuario->set_ds_senha($dataPkg['nm_senha_nova']);
         return $usuario->editarSenha($dataPkg['u']);
+
+    }
+    
+    public function enviarLead($dataPkg): array{
+        $lead = new Lead();
+        $lead->set_ds_email($dataPkg['nm_email']);
+        return $lead->enviarEmail();
     }
 
 }

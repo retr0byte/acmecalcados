@@ -3,7 +3,7 @@ $(function(){ // equivalente do window.onload
     $('.btn-exclui-loja').click(function(e){
         // e.preventDefault();
         let d = $(this).attr('deleteid')
-        console.log(d)
+        // console.log(d)
         
         enviarExcluirLoja({ d })
     })

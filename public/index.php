@@ -14,6 +14,8 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+	<script src="<?php echo PATH_LINKS ?>/assets/js/crialead.js"></script>
+
 </head>
 
 <body>
@@ -99,6 +101,20 @@
 					autoplay: true,
 					autoplayTimeout: 2000,
 					autoplayHoverPause: true,
+					responsiveClass:true,
+    				responsive:{
+								0:{
+									items:1
+								},
+								600:{
+									items:2,
+									nav:false
+								},
+								1000:{
+									items:3,
+									loop:true
+								}
+    						}
 				});
 			</script>
 		</section>
@@ -112,33 +128,25 @@
 			</div>
 
 			<div class="container-parceiros owl-carousel">
-				<div class="item-parceiros">
-					<div class="circulo-parceiros"></div>
-					<div>
-						<span>PARCEIRO</span>
-					</div>
-				</div>
 
-				<div class="item-parceiros">
-					<div class="circulo-parceiros"></div>
-					<div>
-						<span>PARCEIRO</span>
-					</div>
-				</div>
-				
-				<div class="item-parceiros">
-					<div class="circulo-parceiros"></div>
-					<div>
-						<span>PARCEIRO</span>
-					</div>
-				</div>
+				<?php
+					$mysql = new MysqlCRUD();
+					$comando = $mysql->selectFromDb(['*'], 'parceiros');
+					$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+					if(count($resultado) != 0){
+						foreach ($resultado as $resultado){
+							echo "<div class='item-parceiros'>";
+							$caminhoImg = PATH_LINKS . "/assets/images/" . $resultado['ds_PathImg'];
 
-				<div class="item-parceiros">
-					<div class="circulo-parceiros"></div>
-					<div>
-						<span>PARCEIRO</span>
-					</div>
-				</div>
+							echo "<div class='circulo-parceiros'><img src='".$caminhoImg."'></div>";
+
+							echo "<div>"."<span>".$resultado["nm_Parceiro"]."</span>"."</div>";
+							echo "</div>";
+						}
+					}
+				?>
+
+
 
 			</div>	
 			
@@ -148,6 +156,20 @@
 					autoplay: true,
 					autoplayTimeout: 2000,
 					autoplayHoverPause: true,
+					responsive:{
+								0:{
+									items:1,
+									
+								},
+								600:{
+									items:2,
+									nav:false
+								},
+								1000:{
+									items:3,
+									loop:true
+								}
+    						}
 				});
 			</script>
 		</section>
@@ -159,8 +181,8 @@
 				<div class="title-newsletter"><span>Receba ofertas em primeira mão:</span></div>
 				
 				<div class="form-newsletter">
-					<form method="POST" class="form-n">
-						<input type="email" name="email_newsletter" placeholder="Seu melhor e-mail:">
+					<form method="POST" class="form-n" id="form_newsletter" action="#">
+						<input type="email" name="nm_email" id="nm_email" placeholder="Seu melhor e-mail:">
 						<input type="submit" value="Cadastrar">
 					</form>
 				</div>

@@ -1,6 +1,10 @@
-    <header>
+<header>
 
         <div class="all-menu">
+
+            <div id="sejaUmFranqueado2">
+                <a id="menu-franqueado" href="<?php echo PATH_LINKS; ?>/view/pages/sejaUmFranqueado.php">SEJA UM FRANQUEADO</a>
+            </div>
 
             <section id="sss-img">
                 <a href="<?php echo PATH_LINKS; ?>/public/index.php"><img src="<?php echo PATH_LINKS; ?>/assets/images/logo.png" class="logo"></a>
@@ -25,6 +29,8 @@
                         <li class="first-li"><a id="menu-lojas" href="<?php echo PATH_LINKS; ?>/view/pages/lojas.php">LOJAS</a></li>
                         <li class="first-li"><a id="menu-carreiras" href="<?php echo PATH_LINKS; ?>/view/pages/carreiras.php">CARREIRAS</a></li>
                     </ul>
+
+                    
                 </nav>
 
                 <div class="franqueado-link">

@@ -11,3 +11,4 @@
 <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
 <script src="<?php echo PATH_LINKS; ?>/assets/libs/jQuery/jquery.min.js"></script>
 <script src="<?php echo PATH_LINKS; ?>/assets/js/highlight_menu.js"></script>
+<script src="<?php echo PATH_LINKS; ?>/assets/js/menu_bar.js"></script>
