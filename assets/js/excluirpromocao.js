@@ -2,13 +2,11 @@
 $(function(){ // equivalente do window.onload
     $('.btn-exclui-promocao').click(function(e){
         let d = $(this).attr('deleteid')
-        console.log(d)
         enviarExcluirPromocao({ d })
     })
 })
 
 const enviarExcluirPromocao = obj => {
-    console.log(obj)
     $.ajax({
         method: "POST",
         url: `${location.origin}/source/Routes/routes.php?action=excluipromocao`,
@@ -17,7 +15,6 @@ const enviarExcluirPromocao = obj => {
         response = JSON.parse(response)
 
         if(response.status === 200) {
-            console.log("foi")
             location.replace(`${location.origin}/view/pages/painelPromocoes.php`)
         }
         else {

@@ -31,7 +31,14 @@ function defineRoute($route): string {
 
         case 'criapromocao':
             $router = new Router();
-            $result = json_encode($router->criaPromocao($_POST['dataPkg']));
+
+            $dataObj = [
+              "nm_promocao" => base64_decode($_GET['n']),
+              "vl_promocao" => base64_decode($_GET['v']),
+              "photo" => $_FILES['photo']
+            ];
+
+            $result = json_encode($router->criaPromocao($dataObj));
             
             break;
 
@@ -43,7 +50,15 @@ function defineRoute($route): string {
 
         case 'editapromocao':
             $router = new Router();
-            $result = json_encode($router->editaPromocao($_POST['dataPkg']));
+
+            $dataObj = [
+                "nm_promocao" => base64_decode($_GET['n']),
+                "vl_promocao" => base64_decode($_GET['v']),
+                "u" => base64_decode($_GET['u']),
+                "photo" => $_FILES['photo']
+            ];
+
+            $result = json_encode($router->editaPromocao($dataObj));
             
             break;
 

@@ -10,13 +10,14 @@ class Promocoes
 	private $nm_promocao;
 	private $vl_promocao;
 	private $ds_imagem_promocao;
+	private $ds_imagem_promocao_abs;
 
 	public function set_cd_promocao($cd_promocao) {
 		$this->cd_promocao = $cd_promocao;
 	}
 
 	public function get_cd_promocao() {
-		return $this->$cd_promocao;
+		return $this->cd_promocao;
 	}
 
 	public function set_nm_promocao($nm_promocao) {
@@ -24,7 +25,7 @@ class Promocoes
 	}
 
 	public function get_nm_promocao() {
-		return $this->$nm_promocao;
+		return $this->nm_promocao;
 	}
 
 	public function set_vl_promocao($vl_promocao) {
@@ -32,7 +33,7 @@ class Promocoes
 	}
 
 	public function get_vl_promocao() {
-		return $this->$vl_promocao;
+		return $this->vl_promocao;
 	}
 
 	public function set_ds_imagem_promocao($ds_imagem_promocao) {
@@ -40,7 +41,15 @@ class Promocoes
 	}
 
 	public function get_ds_imagem_promocao() {
-		return $this->$ds_imagem_promocao;
+		return $this->ds_imagem_promocao;
+	}
+
+    public function set_ds_imagem_promocao_abs($ds_imagem_promocao_abs) {
+		$this->ds_imagem_promocao_abs = $ds_imagem_promocao_abs;
+	}
+
+	public function get_ds_imagem_promocao_abs() {
+		return $this->ds_imagem_promocao_abs;
 	}
 
 	public function listarPromocao() {
@@ -52,7 +61,7 @@ class Promocoes
 				echo "<tr>";
 				echo "<td>" . $resultado['nm_Promocao'] . "</td>";
 				echo "<td>" . "R$ " . $resultado['vl_Promocao'] . "</td>";
-				echo "<td>" . "<img src='".PATH_LINKS.'/assets/images/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
+				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
 
 				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdatePromocoes.php?u=" . $resultado["cd_Promocao"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
 
@@ -86,7 +95,7 @@ class Promocoes
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<img id='file_upload'>";
+				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
 				echo "</div>";
 				echo "</div>";
 
@@ -102,7 +111,7 @@ class Promocoes
 
 	public function criarPromocao() {
 		$mysql = new MysqlCRUD();
-		$comando = $mysql->insertOnDB('Promocoes',['nm_Promocao','vl_Promocao','ds_PathImg'],[$this->nm_promocao, $this->vl_promocao, $this->ds_imagem_promocao]);
+		$comando = $mysql->insertOnDB('promocoes',['nm_promocao','vl_promocao','ds_pathimg', 'ds_PathImgAbsoluto'],[$this->nm_promocao, $this->vl_promocao, $this->ds_imagem_promocao, $this->ds_imagem_promocao_abs]);
 		
 
 		if($comando) {
@@ -123,9 +132,15 @@ class Promocoes
 	public function excluirPromocao($d) {
 		$mysql = new MysqlCRUD();
 
+        $getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'promocoes','WHERE cd_promocao = ?', [$d]);
+        $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
+        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+
 		$comando = $mysql->deleteFromDB('promocoes','cd_Promocao = ? LIMIT 1',[$d]);
 
-		
+        unlink($pathImg);
+
+		// verificar quando conseguir excluir um e não o outro;
 
 		if($comando) {
 			return [
@@ -145,11 +160,16 @@ class Promocoes
 
 		$mysql = new MysqlCRUD();
 
-		$comando = $mysql->updateOnDB('promocoes','nm_Promocao = ?, vl_Promocao = ?, ds_PathImg = ?','cd_Promocao = ?', [$this->nm_promocao, $this->vl_promocao,$this->ds_imagem_promocao,$u]);
+        $getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'promocoes','WHERE cd_promocao = ?', [$u]);
+        $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
+        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+
+		$comando = $mysql->updateOnDB('promocoes','nm_Promocao = ?, vl_Promocao = ?, ds_PathImg = ?, ds_PathImgAbsoluto = ?','cd_Promocao = ?', [$this->nm_promocao, $this->vl_promocao,$this->ds_imagem_promocao, $this->ds_imagem_promocao_abs,$u]);
 
 		
 
 		if($comando) {
+            unlink($pathImg);
 			return [
 				"status" => 200,
 				"message" => "sucesso"

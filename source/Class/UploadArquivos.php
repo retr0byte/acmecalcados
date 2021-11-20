@@ -1,36 +1,40 @@
-<?php  
+<?php
 namespace Source\Class;
 
 class UploadArquivos
 {
 	private $files;
-	
+    private $pasta_dir = __DIR__."/../../assets/uploads/";
+
 	public function __construct($files) {
 		$this->files = $files;
 	}
 
 	public function upload() {
-		$ext = strtolower(substr($this->files[$this->nome_campo]['name'], -4));
-		$novo_nome = "img" . time() . $ext;
-		$diretorio = "/assets/images";
-		$uploaded = move_uploaded_file($this->nome_campo ['tmp_name'],$diretorio.$novo_nome);
+        $x = date("ii");
+        $filename = md5($this->files["name"]) . 'acme-' . $x . '-' . $this->files["name"];
+        $absolute_path = $this->pasta_dir . $filename;
+        $relative_path = 'uploads/' . $filename;
+        $file_ext = explode('.', $this->files["name"]);
+        $file_ext = '.' . $file_ext[count($file_ext) - 1];
 
-		if($uploaded) {
+        $moveStatus = move_uploaded_file($this->files["tmp_name"], $absolute_path);
+
+		if($moveStatus) {
 			return [
 				'status' => 200,
+                "absolutePath" => $absolute_path,
+                "relativePath" => $relative_path,
 				'message' => 'sucesso'
 			];
 
-		}
-		else {
+		} else {
 			return [
 				"status" => 500,
-				"message" => "erro"
+				"message" => "Não foi possível fazer o upload da imagem."
 			];
 		}
 	}
 
-	
-}
 
-?>
+}

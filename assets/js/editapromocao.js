@@ -4,26 +4,29 @@ $(function(){ // equivalente do window.onload
         e.preventDefault();
         let nm_promocao = $('#nm_promocao').val()
         let vl_promocao = $('#vl_promocao').val()
-        let ds_PathImg = $('input[type=file]')[0].files[0];
-        ds_PathImg = ds_PathImg.name 
         let parameter = new URLSearchParams(window.location.search);
         const u = parameter.get("u")
 
-        enviarEditarPromocao({ nm_promocao, vl_promocao, ds_PathImg, u })
+        let photo = document.getElementById("ds_PathImg").files[0];
+        let formData = new FormData();
+
+        formData.append("photo", photo);
+
+        enviarEditarPromocao({ nm_promocao, vl_promocao, formData, u })
     })
 })
 
 const enviarEditarPromocao = obj => {
-    console.log(obj)
     $.ajax({
         method: "POST",
-        url: `${location.origin}/source/Routes/routes.php?action=editapromocao`,
-        data: { dataPkg: obj }
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        url: `${location.origin}/source/Routes/routes.php?action=editapromocao&n=${btoa(obj.nm_promocao)}&v=${btoa(obj.vl_promocao)}&u=${btoa(obj.u)}`,
+        data: obj.formData
     }).done(function(response) {
-        response = JSON.parse(response)
 
         if(response.status === 200) {
-            console.log("foi")
             location.replace(`${location.origin}/view/pages/painelPromocoes.php`)
         }
         else {

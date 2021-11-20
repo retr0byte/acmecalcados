@@ -5,21 +5,26 @@ $(function(){ // equivalente do window.onload
 
         let nm_promocao = $('#nm_promocao').val()
         let vl_promocao = $('#vl_promocao').val()
-        let ds_PathImg = $('input[type=file]').val().split('\\').pop();
-        
-        enviarInfoPromocao({ nm_promocao, vl_promocao, ds_PathImg })
-        console.log(ds_PathImg);
+
+        let photo = document.getElementById("ds_PathImg").files[0];
+        let formData = new FormData();
+
+        formData.append("photo", photo);
+
+        enviarInfoPromocao({ nm_promocao, vl_promocao, formData })
     })
 })
 
 const enviarInfoPromocao = obj => {
-    console.log(obj)
+
     $.ajax({
         method: "POST",
-        url: `${location.origin}/source/Routes/routes.php?action=criapromocao`,
-        data: { dataPkg: obj }
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        url: `${location.origin}/source/Routes/routes.php?action=criapromocao&n=${btoa(obj.nm_promocao)}&v=${btoa(obj.vl_promocao)}`,
+        data: obj.formData
     }).done(function(response) {
-        response = JSON.parse(response)
 
         if(response.status === 200) {
             location.replace(`${location.origin}/view/pages/painelPromocoes.php`)

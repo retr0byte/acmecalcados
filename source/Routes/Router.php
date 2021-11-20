@@ -45,12 +45,21 @@ class Router
 
     public function criaPromocao($dataPkg): array
     {
+         $upload = new UploadArquivos($dataPkg['photo']);
+         $imgUpload = $upload->upload();
+
+         if($imgUpload['status'] !== 200){
+             return $imgUpload;
+         }
+
+        $imgPath = $imgUpload['relativePath'];
+        $imgPathAbsolute = $imgUpload['absolutePath'];
+
         $promocao = new Promocoes();
         $promocao->set_nm_promocao($dataPkg['nm_promocao']);
         $promocao->set_vl_promocao($dataPkg['vl_promocao']);
-        $promocao->set_ds_imagem_promocao($dataPkg['ds_PathImg']);
-        // $upload = new UploadArquivos($dataPkg['ds_PathImg']);
-        // $upload->upload();
+        $promocao->set_ds_imagem_promocao($imgPath);
+        $promocao->set_ds_imagem_promocao_abs($imgPathAbsolute);
         return $promocao->criarPromocao();
     }
 
@@ -62,10 +71,22 @@ class Router
 
     public function editaPromocao($dataPkg): array
     {
+        $upload = new UploadArquivos($dataPkg['photo']);
+        $imgUpload = $upload->upload();
+
+        if($imgUpload['status'] !== 200){
+            return $imgUpload;
+        }
+
+        $imgPath = $imgUpload['relativePath'];
+        $imgPathAbsolute = $imgUpload['absolutePath'];
+
+
         $promocao = new Promocoes();
         $promocao->set_nm_promocao($dataPkg['nm_promocao']);
         $promocao->set_vl_promocao($dataPkg['vl_promocao']);
-        $promocao->set_ds_imagem_promocao($dataPkg['ds_PathImg']);
+        $promocao->set_ds_imagem_promocao($imgPath);
+        $promocao->set_ds_imagem_promocao_abs($imgPathAbsolute);
         return $promocao->editarPromocao($dataPkg['u']);
     }
 
