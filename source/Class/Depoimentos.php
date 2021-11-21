@@ -10,6 +10,7 @@ class Depoimentos
 	private $nm_depoimento;
 	private $ds_depoimento;
 	private $ds_imagem_depoimento;
+	private $ds_imagem_depoimento_abs;
 
 	public function set_cd_depoimento($cd_depoimento) {
 		$this->cd_depoimento = $cd_depoimento;
@@ -27,6 +28,10 @@ class Depoimentos
 		$this->ds_imagem_depoimento = $ds_imagem_depoimento;
 	}
 
+	public function set_ds_imagem_depoimento_abs($ds_imagem_depoimento_abs) {
+		$this->ds_imagem_depoimento_abs = $ds_imagem_depoimento_abs;
+	}
+
 	public function listarDepoimento() {
 		$mysql = new MysqlCRUD();
 		$comando = $mysql->selectFromDb(['*'], 'depoimentos');
@@ -36,7 +41,7 @@ class Depoimentos
 				echo "<tr>";
 				echo "<td>" . $resultado['nm_Depoimento'] . "</td>";
 				echo "<td>" . $resultado['ds_Depoimento'] . "</td>";
-				echo "<td>" . "<img src='".PATH_LINKS.'/assets/images/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
+				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
 
 				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdateDepoimentos.php?u=" . $resultado["cd_Depoimento"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
 
@@ -69,7 +74,7 @@ class Depoimentos
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<img id='file_upload'>";
+				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
 				echo "</div>";
 				echo "</div>";
 
@@ -85,7 +90,7 @@ class Depoimentos
 
 	public function criarDepoimento() {
 		$mysql = new MysqlCRUD();
-		$comando = $mysql->insertOnDB('Depoimentos',['nm_Depoimento','ds_Depoimento','ds_PathImg'],[$this->nm_depoimento, $this->ds_depoimento, $this->ds_imagem_depoimento]);
+		$comando = $mysql->insertOnDB('Depoimentos',['nm_Depoimento','ds_Depoimento','ds_PathImg', 'ds_PathImgAbsoluto'],[$this->nm_depoimento, $this->ds_depoimento, $this->ds_imagem_depoimento, $this->ds_imagem_depoimento_abs]);
 		
 
 		if($comando) {
@@ -106,9 +111,14 @@ class Depoimentos
 	public function excluirDepoimento($d) {
 		$mysql = new MysqlCRUD();
 
+		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'depoimentos','WHERE cd_depoimento = ?', [$d]);
+        $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
+        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+
 		$comando = $mysql->deleteFromDB('depoimentos','cd_Depoimento = ? LIMIT 1',[$d]);
 
 		
+		unlink($pathImg);
 
 		if($comando) {
 			return [
@@ -128,11 +138,16 @@ class Depoimentos
 
 		$mysql = new MysqlCRUD();
 
-		$comando = $mysql->updateOnDB('depoimentos','nm_Depoimento = ?, ds_Depoimento = ?, ds_PathImg = ?','cd_Depoimento = ?', [$this->nm_depoimento, $this->ds_depoimento,$this->ds_imagem_depoimento,$u]);
+		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'depoimentos','WHERE cd_depoimento = ?', [$u]);
+		$accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
+        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+
+		$comando = $mysql->updateOnDB('depoimentos','nm_Depoimento = ?, ds_Depoimento = ?, ds_PathImg = ?, ds_PathImgAbsoluto = ?','cd_Depoimento = ?', [$this->nm_depoimento, $this->ds_depoimento,$this->ds_imagem_depoimento,$this->ds_imagem_depoimento_abs,$u]);
 
 		
 
 		if($comando) {
+            unlink($pathImg);
 			return [
 				"status" => 200,
 				"message" => "sucesso"

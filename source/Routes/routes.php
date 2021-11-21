@@ -64,7 +64,14 @@ function defineRoute($route): string {
 
         case 'criadepoimento':
             $router = new Router();
-            $result = json_encode($router->criaDepoimento($_POST['dataPkg']));
+
+            $dataObj = [
+              "nm_depoimento" => base64_decode($_GET['n']),
+              "ds_depoimento" => base64_decode($_GET['v']),
+              "photo" => $_FILES['photo']
+            ];
+
+            $result = json_encode($router->criaDepoimento($dataObj));
             
             break;
 
@@ -76,13 +83,27 @@ function defineRoute($route): string {
 
         case 'editadepoimento':
             $router = new Router();
-            $result = json_encode($router->editaDepoimento($_POST['dataPkg']));
+
+            $dataObj = [
+                "nm_depoimento" => base64_decode($_GET['n']),
+                "ds_depoimento" => base64_decode($_GET['v']),
+                "u" => base64_decode($_GET['u']),
+                "photo" => $_FILES['photo']
+            ];
+
+            $result = json_encode($router->editaDepoimento($dataObj));
             
             break;
 
         case 'criaparceiro':
             $router = new Router();
-            $result = json_encode($router->criaParceiro($_POST['dataPkg']));
+
+            $dataObj = [
+              "nm_parceiro" => base64_decode($_GET['n']),
+              "photo" => $_FILES['photo']
+            ];
+
+            $result = json_encode($router->criaParceiro($dataObj));
             
             break;
 
@@ -94,7 +115,14 @@ function defineRoute($route): string {
 
         case 'editaparceiro':
             $router = new Router();
-            $result = json_encode($router->editaParceiro($_POST['dataPkg']));
+
+            $dataObj = [
+                "nm_parceiro" => base64_decode($_GET['n']),
+                "u" => base64_decode($_GET['u']),
+                "photo" => $_FILES['photo']
+            ];
+
+            $result = json_encode($router->editaParceiro($dataObj));
             
             break;
 
@@ -118,7 +146,15 @@ function defineRoute($route): string {
 
         case 'editausuario':
             $router = new Router();
-            $result = json_encode($router->editaUsuario($_POST['dataPkg']));
+
+            $dataObj = [
+                "nm_usuario" => base64_decode($_GET['n']),
+                "nm_acesso" => base64_decode($_GET['v']),
+                "u" => base64_decode($_GET['u']),
+                "photo" => $_FILES['photo']
+            ];
+
+            $result = json_encode($router->editaUsuario($dataObj));
             
             break;
         

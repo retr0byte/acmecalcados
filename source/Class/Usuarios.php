@@ -11,6 +11,7 @@ class Usuarios
 	private $nm_acesso;
 	private $ds_senha;
 	private $ds_imagem_usuario;
+	private $ds_imagem_promocao_abs;
 
 	public function set_cd_usuario($cd_usuario) {
 		$this->cd_usuario = $cd_usuario;
@@ -30,6 +31,10 @@ class Usuarios
 
 	public function set_ds_imagem_usuario($ds_imagem_usuario) {
 		$this->ds_imagem_usuario = $ds_imagem_usuario;
+	}
+
+	public function set_ds_imagem_usuario_abs($ds_imagem_usuario_abs) {
+		$this->ds_imagem_usuario_abs = $ds_imagem_usuario_abs;
 	}
 
 	public function formEditUsuario($u) {
@@ -53,7 +58,7 @@ class Usuarios
 				echo "</div>";
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<img id='file_upload'>";
+				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
 				echo "</div>";
 				echo "</div>";
 				echo "<div class='box-form-geral'>";
@@ -71,11 +76,16 @@ class Usuarios
 
 		$mysql = new MysqlCRUD();
 
-		$comando = $mysql->updateOnDB('usuarios','nm_Usuario = ?, nm_Acesso = ?, ds_PathImg = ?','cd_Usuario = ?', [$this->nm_usuario, $this->nm_acesso , $this->ds_imagem_usuario,$u]);
+		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'usuarios','WHERE cd_usuario = ?', [$u]);
+        $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
+        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+
+		$comando = $mysql->updateOnDB('usuarios','nm_Usuario = ?, nm_Acesso = ?, ds_PathImg = ?, ds_PathImgAbsoluto = ?','cd_Usuario = ?', [$this->nm_usuario, $this->nm_acesso , $this->ds_imagem_usuario,$this->ds_imagem_usuario_abs,$u]);
 
 		
 
 		if($comando) {
+            unlink($pathImg);
 			return [
 				"status" => 200,
 				"message" => "sucesso"

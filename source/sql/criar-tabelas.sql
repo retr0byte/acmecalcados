@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS Lojas (
 CREATE TABLE IF NOT EXISTS Parceiros (
      cd_Parceiro int(11) AUTO_INCREMENT NOT NULL,
      nm_Parceiro varchar(255) NOT NULL,
+     ds_PathImgAbsoluto text NOT NULL,
      ds_PathImg text NOT NULL,
      PRIMARY KEY (cd_Parceiro)
 );
@@ -58,6 +59,7 @@ CREATE TABLE IF NOT EXISTS Depoimentos (
    cd_Depoimento int(11) AUTO_INCREMENT NOT NULL,
    nm_Depoimento varchar(255) NOT NULL,
    ds_Depoimento text NOT NULL,
+   ds_PathImgAbsoluto text NOT NULL,
    ds_PathImg text NOT NULL,
    PRIMARY KEY (cd_Depoimento)
 );
@@ -81,6 +83,7 @@ CREATE TABLE IF NOT EXISTS Usuarios (
     nm_Usuario varchar(255) NOT NULL,
     nm_Acesso varchar(10) NOT NULL,
     ds_Senha varchar(20) NOT NULL,
+    ds_PathImgAbsoluto text NOT NULL,
     ds_PathImg text NOT NULL,
     PRIMARY KEY (cd_Usuario)
 );

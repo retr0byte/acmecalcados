@@ -61,25 +61,30 @@ class Lojas
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
+				
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='nome'>" . "NOME:". "</label>";
 				echo "<input type='text' name='nm_loja' id='nm_loja' value='".$resultado['nm_Loja']."' required>";
 				echo "</div>";
+				echo "</div>";
 
+				echo "<div class='box-form-geral'>";
 				echo "<div>";
-
 				echo "<label for='endereco'>" . "ENDERECO:". "</label>";
 				echo "<input type='text' name='ds_endereco' id='ds_endereco' value='".$resultado['ds_Endereco']."' required>";
-
 				echo "</div>";
+				echo "</div>";
+
+			
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 
 				echo "<label for='telefone'>" . "TELEFONE:". "</label>";
 				echo "<input type='text' name='cd_telefone' id='cd_telefone' value='".$resultado['cd_Telefone']."' required>";
 
-				echo "<div>";
+				echo "</div>";
+
 				echo "<div>";
 
 				echo "<label for='celular'>" . "CELULAR:". "</label>";

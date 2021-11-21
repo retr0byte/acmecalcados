@@ -2,31 +2,27 @@
 $(function(){ // equivalente do window.onload
     $('#form_new_parceiro').submit(function(e){
         e.preventDefault();
-
-        const fileInput = document.querySelector("#ds_PathImg");
         
         let nm_parceiro = $('#nm_parceiro').val()
+        
+        let photo = document.getElementById("ds_PathImg").files[0];
         let formData = new FormData();
-        let files = $('ds_PathImg')
-        formData.append("file", files)
 
-        fileInput.addEventListener("change", event => {
-            const files = event.target.files[0];
-        });
-        enviarInfoParceiro({ nm_parceiro, files})
+        formData.append("photo", photo);
 
-        // enviarInfoParceiro({ nm_parceiro, formData })
+        enviarInfoParceiro({ nm_parceiro, formData})
     })
 })
 
 const enviarInfoParceiro = obj => {
-    console.log(obj)
     $.ajax({
         method: "POST",
-        url: `${location.origin}/source/Routes/routes.php?action=criaparceiro`,
-        data: { dataPkg: obj }
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        url: `${location.origin}/source/Routes/routes.php?action=criaparceiro&n=${btoa(obj.nm_parceiro)}}`,
+        data: obj.formData
     }).done(function(response) {
-        response = JSON.parse(response)
 
         if(response.status === 200) {
             location.replace(`${location.origin}/view/pages/painelParceiros.php`)

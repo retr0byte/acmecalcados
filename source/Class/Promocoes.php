@@ -70,7 +70,7 @@ class Promocoes
 				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_Promocao"]."' class='"."btn-exclui-promocao"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
 
 
-				echo "<tr>";
+				echo "</tr>";
 			}
 		}
 	}

@@ -3,13 +3,15 @@ $(function(){ // equivalente do window.onload
     $('#form_edit_depoimento').submit(function(e){
         e.preventDefault();
         let nm_depoimento = $('#nm_depoimento').val()
-        let ds_depoimento = $('#ds_depoimento').val()
-        let ds_PathImg = $('input[type=file]')[0].files[0];
-        ds_PathImg = ds_PathImg.name 
+        let ds_depoimento = $('#ds_depoimento').val() 
         let parameter = new URLSearchParams(window.location.search);
         const u = parameter.get("u")
 
-        enviarEditarDepoimento({ nm_depoimento, ds_depoimento, ds_PathImg, u })
+        let photo = document.getElementById("ds_PathImg").files[0];
+        let formData = new FormData();
+
+        formData.append("photo", photo);
+        enviarEditarDepoimento({ nm_depoimento, ds_depoimento, formData, u })
     })
 })
 
@@ -17,10 +19,12 @@ const enviarEditarDepoimento = obj => {
     console.log(obj)
     $.ajax({
         method: "POST",
-        url: `${location.origin}/source/Routes/routes.php?action=editadepoimento`,
-        data: { dataPkg: obj }
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        url: `${location.origin}/source/Routes/routes.php?action=editadepoimento&n=${btoa(obj.nm_depoimento)}&v=${btoa(obj.ds_depoimento)}&u=${btoa(obj.u)}`,
+        data: obj.formData
     }).done(function(response) {
-        response = JSON.parse(response)
 
         if(response.status === 200) {
             console.log("foi")

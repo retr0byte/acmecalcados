@@ -9,6 +9,7 @@ class Parceiros
 	private $cd_parceiro;
 	private $nm_parceiro;
 	private $ds_imagem_parceiro;
+	private $ds_imagem_parceiro_abs;
 
 	public function set_cd_parceiro($cd_parceiro) {
 		$this->cd_parceiro = $cd_parceiro;
@@ -22,6 +23,10 @@ class Parceiros
 		$this->ds_imagem_parceiro = $ds_imagem_parceiro;
 	}
 
+	public function set_ds_imagem_parceiro_abs($ds_imagem_parceiro_abs) {
+		$this->ds_imagem_parceiro_abs = $ds_imagem_parceiro_abs;
+	}
+
 	public function listarParceiro() {
 		$mysql = new MysqlCRUD();
 		$comando = $mysql->selectFromDb(['*'], 'parceiros');
@@ -31,7 +36,7 @@ class Parceiros
 				echo "<tr>";
 				echo "<td>" . $resultado['nm_Parceiro'] . "</td>";
 
-				echo "<td>" . "<img src='".PATH_LINKS.'/assets/images/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
+				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
 
 				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdateParceiros.php?u=" . $resultado["cd_Parceiro"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
 
@@ -58,7 +63,7 @@ class Parceiros
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<img id='file_upload'>";
+				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
 				echo "</div>";
 				echo "</div>";
 
@@ -74,7 +79,7 @@ class Parceiros
 
 	public function criarParceiro() {
 		$mysql = new MysqlCRUD();
-		$comando = $mysql->insertOnDB('Parceiros',['nm_Parceiro','ds_PathImg'],[$this->nm_parceiro, $this->ds_imagem_parceiro]);
+		$comando = $mysql->insertOnDB('parceiros',['nm_Parceiro','ds_PathImg', 'ds_PathImgAbsoluto'],[$this->nm_parceiro, $this->ds_imagem_parceiro, $this->ds_imagem_parceiro_abs]);
 		
 
 		if($comando) {
@@ -95,9 +100,14 @@ class Parceiros
 	public function excluirParceiro($d) {
 		$mysql = new MysqlCRUD();
 
+		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'parceiros','WHERE cd_parceiro = ?', [$d]);
+        $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
+        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+
 		$comando = $mysql->deleteFromDB('parceiros','cd_Parceiro = ? LIMIT 1',[$d]);
 
-		
+		unlink($pathImg);
+
 
 		if($comando) {
 			return [
@@ -117,11 +127,17 @@ class Parceiros
 
 		$mysql = new MysqlCRUD();
 
-		$comando = $mysql->updateOnDB('parceiros','nm_Parceiro = ?, ds_PathImg = ?','cd_Parceiro = ?', [$this->nm_parceiro, $this->ds_imagem_parceiro,$u]);
+
+		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'parceiros','WHERE cd_parceiro = ?', [$u]);
+        $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
+        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+
+		$comando = $mysql->updateOnDB('parceiros','nm_Parceiro = ?, ds_PathImg = ?, ds_PathImgAbsoluto = ?','cd_Parceiro = ?', [$this->nm_parceiro, $this->ds_imagem_parceiro, $this->ds_imagem_parceiro_abs,$u]);
 
 		
 
 		if($comando) {
+            unlink($pathImg);
 			return [
 				"status" => 200,
 				"message" => "sucesso"

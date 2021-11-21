@@ -94,13 +94,24 @@ main {
 	border: 1px solid #E4E4E4;
 	display: flex;
     background-color: #fff;
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     border-radius: 50px;
     font-size: 20px;
     justify-content: center;
     align-items: center;
     color: #0D65D9;
+}
+
+#imgADM {
+	margin: 0;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', serif;
+    border-radius: 50px;
 }
 
 .squad-adm {

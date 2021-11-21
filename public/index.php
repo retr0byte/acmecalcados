@@ -43,7 +43,7 @@
 				$linkLoja = PATH_LINKS . "/view/pages/lojas.php";
 				if(count($resultado) != 0) {
 					foreach ($resultado as $resultado) {
-						$caminhoImg = PATH_LINKS . "/assets/images/" . $resultado['ds_PathImg'];
+						$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_PathImg'];
 						echo "<div class='img-mais-vendidos' style='background: url($caminhoImg); width: 330px;height: 50vh;background-size: cover;background-position: 60% 85%;display: flex;margin: 10px 6vh;flex-direction: column-reverse;'>";
 
 						echo "<div class='container-img-vendidos'>";
@@ -81,7 +81,7 @@
 						foreach ($resultado as $resultado){
 							echo "<div class='folha-depoimento'>";
 							echo "<div class='imagem-depoimento'>";
-							$caminhoImg = PATH_LINKS . "/assets/images/" . $resultado['ds_PathImg'];
+							$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_PathImg'];
 							echo "<img src='".$caminhoImg."' alt='imagem'>";
 							echo "</div>";
 							echo "<div class='nome-depoimento'>" . "<span>" . $resultado["nm_Depoimento"] . "</span>" . "</div>";
@@ -136,7 +136,7 @@
 					if(count($resultado) != 0){
 						foreach ($resultado as $resultado){
 							echo "<div class='item-parceiros'>";
-							$caminhoImg = PATH_LINKS . "/assets/images/" . $resultado['ds_PathImg'];
+							$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_PathImg'];
 
 							echo "<div class='circulo-parceiros'><img src='".$caminhoImg."'></div>";
 

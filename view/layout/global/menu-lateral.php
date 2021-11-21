@@ -7,11 +7,11 @@
 
 		<dis class="itens-lateral">
 			<ul>
-				<li><a href="<?php echo PATH_LINKS; ?>/view/pages/painelInterno.php"><i class="fas fa-home"></i><span>Painel</span></a></li>
-				<li><a href="painelPromocoes.php"><i class="fas fa-cog"></i><span>Promoções</span></a></li>
-				<li><a href="<?php echo PATH_LINKS; ?>/view/pages/painelDepoimentos.php"><i class="fas fa-cog"></i><span>Depoimentos</span></a></li>
-				<li><a href="<?php echo PATH_LINKS; ?>/view/pages/painelParceiros.php"><i class="fas fa-cog"></i><span>Parceiros</span></a></li>
-				<li><a href="<?php echo PATH_LINKS; ?>/view/pages/painelLojas.php"><i class="fas fa-cog"></i><span>Nossas Lojas</span></a></li>
+				<li><a href="<?php echo PATH_LINKS; ?>/view/pages/painelInterno.php"><i class="fas fa-home"></i id="menu-home"><span>Painel</span></a></li>
+				<li id="menu-home"><a href="painelPromocoes.php"><i class="fas fa-cog"></i><span>Promoções</span></a></li>
+				<li id="menu-home"><a href="<?php echo PATH_LINKS; ?>/view/pages/painelDepoimentos.php"><i class="fas fa-cog"></i><span>Depoimentos</span></a></li>
+				<li id="menu-home"><a href="<?php echo PATH_LINKS; ?>/view/pages/painelParceiros.php"><i class="fas fa-cog"></i><span>Parceiros</span></a></li>
+				<li id="menu-home"><a href="<?php echo PATH_LINKS; ?>/view/pages/painelLojas.php"><i class="fas fa-cog"></i><span>Nossas Lojas</span></a></li>
 			</ul>
 		</dis>
 	</div>

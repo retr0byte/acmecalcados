@@ -3,12 +3,15 @@ $(function(){ // equivalente do window.onload
     $('#form_edit_parceiro').submit(function(e){
         e.preventDefault();
         let nm_parceiro = $('#nm_parceiro').val()
-        let ds_PathImg = $('input[type=file]')[0].files[0];
-        ds_PathImg = ds_PathImg.name 
         let parameter = new URLSearchParams(window.location.search);
         const u = parameter.get("u")
 
-        enviarEditarParceiro({ nm_parceiro, ds_PathImg, u })
+        let photo = document.getElementById("ds_PathImg").files[0];
+        let formData = new FormData();
+
+        formData.append("photo", photo);
+
+        enviarEditarParceiro({ nm_parceiro, formData, u })
     })
 })
 
@@ -16,10 +19,12 @@ const enviarEditarParceiro = obj => {
     console.log(obj)
     $.ajax({
         method: "POST",
-        url: `${location.origin}/source/Routes/routes.php?action=editaparceiro`,
-        data: { dataPkg: obj }
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        url: `${location.origin}/source/Routes/routes.php?action=editaparceiro&n=${btoa(obj.nm_parceiro)}&u=${btoa(obj.u)}`,
+        data: obj.formData
     }).done(function(response) {
-        response = JSON.parse(response)
 
         if(response.status === 200) {
             console.log("foi")

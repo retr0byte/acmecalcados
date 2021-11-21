@@ -47,6 +47,8 @@
 							$promocao->listarPromocao();  
 							?>
 						</table>
+
+						
 						
 					</div>
 

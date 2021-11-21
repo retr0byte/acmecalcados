@@ -5,22 +5,25 @@ $(function(){ // equivalente do window.onload
 
         let nm_depoimento = $('#nm_depoimento').val()
         let ds_depoimento = $('#ds_depoimento').val()
-        let ds_PathImg = $('input[type=file]')[0].files[0];
-        ds_PathImg = ds_PathImg.name 
+        
+        let photo = document.getElementById("ds_PathImg").files[0];
+        let formData = new FormData();
 
-        enviarInfoDepoimento({ nm_depoimento, ds_depoimento, ds_PathImg })
-        console.log(ds_PathImg);
+        formData.append("photo", photo);
+
+        enviarInfoDepoimento({ nm_depoimento, ds_depoimento, formData })
     })
 })
 
 const enviarInfoDepoimento = obj => {
-    console.log(obj)
     $.ajax({
         method: "POST",
-        url: `${location.origin}/source/Routes/routes.php?action=criadepoimento`,
-        data: { dataPkg: obj }
+         processData: false,
+        contentType: false,
+        dataType: 'json',
+        url: `${location.origin}/source/Routes/routes.php?action=criadepoimento&n=${btoa(obj.nm_depoimento)}&v=${btoa(obj.ds_depoimento)}`,
+        data: obj.formData
     }).done(function(response) {
-        response = JSON.parse(response)
 
         if(response.status === 200) {
             location.replace(`${location.origin}/view/pages/painelDepoimentos.php`)

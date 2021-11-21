@@ -1,11 +1,21 @@
 <div class="conteudoFull">
 		<div class="squad-adm">
 			<div class="squad-adm-info">
-				<div class="icone-adm"><i class="fas fa-user-alt"></i></div>
-				<span>
+				<div class="icone-adm">
 					<?php 
 					use Source\Class\MysqlCRUD; 
 					$mysql = new MysqlCRUD();
+					$comandoIMG = $mysql->selectFromDB(['ds_PathImg'], 'Usuarios', 'WHERE cd_Usuario = ?', [$_SESSION["codigo"]]);
+					$resultado = $comandoIMG->fetchAll(PDO::FETCH_ASSOC);
+					if(count($resultado) != 0) {
+						foreach ($resultado as $resultado) {
+							echo "<img id='imgADM' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
+						}
+					}
+					?>
+				</div>
+				<span>
+					<?php 
 					$comando = $mysql->selectFromDB(['nm_Usuario'], 'Usuarios', 'WHERE cd_Usuario = ?', [$_SESSION["codigo"]]);
 					$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 					if(count($resultado) != 0) {

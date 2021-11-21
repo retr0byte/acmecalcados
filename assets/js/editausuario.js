@@ -4,23 +4,26 @@ $(function(){ // equivalente do window.onload
         e.preventDefault();
         let nm_usuario = $('#nm_usuario').val()
         let nm_acesso = $('#nm_acesso').val()
-        let ds_PathImg = $('input[type=file]')[0].files[0];
-        ds_PathImg = ds_PathImg.name 
         let u = $('#btn_cd').attr('editcd')
      
+        let photo = document.getElementById("ds_PathImg").files[0];
+        let formData = new FormData();
 
-        enviarEditarUsuario({ nm_usuario, nm_acesso, ds_PathImg, u})
+        formData.append("photo", photo);
+
+        enviarEditarUsuario({ nm_usuario, nm_acesso, formData, u})
     })
 })
 
 const enviarEditarUsuario = obj => {
-    console.log(obj)
     $.ajax({
         method: "POST",
-        url: `${location.origin}/source/Routes/routes.php?action=editausuario`,
-        data: { dataPkg: obj }
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        url: `${location.origin}/source/Routes/routes.php?action=editausuario&n=${btoa(obj.nm_usuario)}&v=${btoa(obj.nm_acesso)}&u=${btoa(obj.u)}`,
+        data: obj.formData
     }).done(function(response) {
-        response = JSON.parse(response)
 
         if(response.status === 200) {
             console.log("foi")
