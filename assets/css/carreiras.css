@@ -1,7 +1,7 @@
 @import url('main.css');
 
 main.carreiras {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -22,11 +22,14 @@ main.carreiras section.description {
 section.description div.inner-wrapper{
     width: 49%;
     margin: 0 .5%;
+
 }
 
 section.description div.inner-wrapper:last-child{
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    margin-left: 5%;
 }
 
 section.description div.inner-wrapper:last-child img{
@@ -47,7 +50,7 @@ section.description div.inner-wrapper h2{
 
 section.description div.inner-wrapper p{
     color: var(--unnamed-color-707070);
-    font-size: 1.3em;
+    font-size: clamp(1rem, 1.3vw, 2rem);
     text-align: justify;
 }
 
@@ -104,5 +107,9 @@ section.cta span i{
 
     section.description div.inner-wrapper:last-child img{
         width: 400px;
+    }
+
+    section.description div.inner-wrapper:last-child{
+        margin-left:0%;
     }
 }
