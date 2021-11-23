@@ -48,7 +48,8 @@
 
 						echo "<div class='container-img-vendidos'>";
 						echo "<div class='banner-conteudo-vendidos'>";
-						echo "<span>" . $resultado['nm_Promocao'] . "</span>";
+						echo "<span id='span_nome'>" . $resultado['nm_Promocao'] . "</span>";
+						echo "<span id='span_preco'>" . "R$ " . $resultado['vl_Promocao'] . "</span>";
 										
 						echo "<a href='".$linkLoja."'>" . "Encontrar loja mais próxima" . "</a>";
 						echo "</div>";
