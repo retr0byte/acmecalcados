@@ -1,4 +1,4 @@
-
+drop database if exists acme_calcados;
 --
 -- Cria o BD caso não exista
 --
@@ -115,3 +115,6 @@ CREATE TABLE IF NOT EXISTS Mensagens (
     FOREIGN KEY (cd_Cliente)
     REFERENCES Clientes (cd_Cliente)
 );
+
+insert into Usuarios values
+(01234567890, 'usuarioTeste', 'usuario', 'adm', 'C:\xampp\htdocs\source\Class/../../assets/uploads/1c87536c9597656ee77b462cdb419b69acme-2828-kaisa-ig-rosto.PNG','uploads/1c87536c9597656ee77b462cdb419b69acme-2828-kaisa-ig-rosto.PNG');
