@@ -24,9 +24,8 @@ const enviarEditarUsuario = obj => {
         url: `${location.origin}/source/Routes/routes.php?action=editausuario&n=${btoa(obj.nm_usuario)}&v=${btoa(obj.nm_acesso)}&u=${btoa(obj.u)}`,
         data: obj.formData
     }).done(function(response) {
-
+    
         if(response.status === 200) {
-            console.log("foi")
             location.replace(`${location.origin}/view/pages/painelUpdateUsuarios.php`)
         }
         else {

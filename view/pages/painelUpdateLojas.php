@@ -57,5 +57,6 @@
     <script src="<?php echo PATH_LINKS ?>/assets/js/editaloja.js"></script>
 	<script src="<?php echo PATH_LINKS ?>/assets/js/sair.js"></script>
 	<script src="<?php echo PATH_LINKS ?>/assets/js/atualizaImagem.js"></script>
+	<script src="<?php echo PATH_LINKS ?>/assets/js/mascara_lojas.js"></script> 
 </body>
 </html>

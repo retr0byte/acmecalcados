@@ -81,14 +81,14 @@ class Lojas
 				echo "<div>";
 
 				echo "<label for='telefone'>" . "TELEFONE:". "</label>";
-				echo "<input type='text' name='cd_telefone' id='cd_telefone' value='".$resultado['cd_Telefone']."' required>";
+				echo "<input type='text' name='cd_telefone' id='cd_telefone' class='masc_loja' value='".$resultado['cd_Telefone']."' required>";
 
 				echo "</div>";
 
 				echo "<div>";
 
 				echo "<label for='celular'>" . "CELULAR:". "</label>";
-				echo "<input type='text' name='nm_celular' id='cd_celular' value='".$resultado['cd_Celular']."' required>";
+				echo "<input type='text' name='nm_celular' id='cd_celular' class='masc_loja' value='".$resultado['cd_Celular']."' required>";
 
 				echo "</div>";
 				echo "</div>";

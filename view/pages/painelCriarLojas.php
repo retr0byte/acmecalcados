@@ -44,14 +44,14 @@
 								<div class="box-form-geral">
 									<div>
 										<label for="telefone">TELEFONE:</label>
-										<input type="text" name="cd_telefone" id="cd_telefone" required>
+										<input type="text" name="cd_telefone" id="cd_telefone" class="masc_loja" required>
 									</div>
 								
 								
 							
 									<div>
 										<label for="celular">CELULAR:</label>
-										<input type="text" name="cd_celular" id="cd_celular" required>
+										<input type="text" name="cd_celular" id="cd_celular" class="masc_loja" required>
 									</div>
 								</div>
 								
@@ -77,5 +77,6 @@
     <script src="<?php echo PATH_LINKS ?>/assets/js/painel_usuario.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/loja.js"></script>
     <script src="<?php echo PATH_LINKS ?>/assets/js/sair.js"></script> 
+    <script src="<?php echo PATH_LINKS ?>/assets/js/mascara_lojas.js"></script> 
 </body>
 </html>
