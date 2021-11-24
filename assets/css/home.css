@@ -233,13 +233,12 @@
 	opacity: 1;
 	display: flex;
 	align-items: center;
+	padding: 10px;
 
 }
 
 .circulo-parceiros img{
 	width: 90px;
-	height: 40px;
-	margin: 10px;
 }
 
 /*newsletter*/

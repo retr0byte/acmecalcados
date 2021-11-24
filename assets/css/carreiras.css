@@ -1,7 +1,7 @@
 @import url('main.css');
 
 main.carreiras {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -107,5 +107,9 @@ section.cta span i{
 
     section.description div.inner-wrapper:last-child img{
         width: 400px;
+    }
+
+    section.description div.inner-wrapper:last-child{
+        margin-left:0%;
     }
 }
