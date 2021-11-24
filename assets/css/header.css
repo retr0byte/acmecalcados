@@ -111,8 +111,11 @@ header .all-menu section {
     display: none;
 }
 
+#ul_bar.activee {
+    display: flex;
+}
 
-@media (max-width: 850px) {
+@media (max-width: 880px) {
 
     #ul_bar {
         display: none;
