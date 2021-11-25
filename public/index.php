@@ -1,5 +1,5 @@
 <?php require_once __DIR__.'/../assets/vendor/autoload.php'; ?>
-<?php use Source\Class\MysqlCRUD; ?>
+<?php use Source\Class\PostgreSqlCRUD; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -37,19 +37,19 @@
 			<div class="box-img-mais-vendidos">
 				
 				<?php 
-				$mysql = new MysqlCRUD();
-				$comando = $mysql->selectFromDB(['*'], 'Promocoes', 'ORDER BY cd_Promocao DESC LIMIT 2');
+				$pgsql = new PostgreSqlCRUD();
+				$comando = $pgsql->selectFromDB(['*'], 'Promocoes', 'ORDER BY cd_promocao DESC LIMIT 2');
 				$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 				$linkLoja = PATH_LINKS . "/view/pages/lojas.php";
 				if(count($resultado) != 0) {
 					foreach ($resultado as $resultado) {
-						$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_PathImg'];
+						$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_pathimg'];
 						echo "<div class='img-mais-vendidos' style='background: url($caminhoImg); width: 330px;height: 50vh;background-size: cover;background-position: 60% 85%;display: flex;margin: 10px 6vh;flex-direction: column-reverse;'>";
 
 						echo "<div class='container-img-vendidos'>";
 						echo "<div class='banner-conteudo-vendidos'>";
-						echo "<span id='span_nome'>" . $resultado['nm_Promocao'] . "</span>";
-						echo "<span id='span_preco'>" . "R$ " . $resultado['vl_Promocao'] . "</span>";
+						echo "<span id='span_nome'>" . $resultado['nm_promocao'] . "</span>";
+						echo "<span id='span_preco'>" . "R$ " . $resultado['vl_promocao'] . "</span>";
 										
 						echo "<a href='".$linkLoja."'>" . "Encontrar loja mais próxima" . "</a>";
 						echo "</div>";
@@ -75,18 +75,18 @@
 			<div class="container-depoimentos owl-carousel"> 
 
 				<?php
-					$mysql = new MysqlCRUD();
-					$comando = $mysql->selectFromDb(['*'], 'depoimentos');
+					$pgsql = new PostgreSqlCRUD();
+					$comando = $pgsql->selectFromDb(['*'], 'depoimentos');
 					$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 					if(count($resultado) != 0){
 						foreach ($resultado as $resultado){
 							echo "<div class='folha-depoimento'>";
 							echo "<div class='imagem-depoimento'>";
-							$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_PathImg'];
+							$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_pathimg'];
 							echo "<img src='".$caminhoImg."' alt='imagem'>";
 							echo "</div>";
-							echo "<div class='nome-depoimento'>" . "<span>" . $resultado["nm_Depoimento"] . "</span>" . "</div>";
-							echo "<div class='title-depoimentos'>"."<p>".'<span>"</span>'.$resultado["ds_Depoimento"]."</p>"."</div>";
+							echo "<div class='nome-depoimento'>" . "<span>" . $resultado["nm_depoimento"] . "</span>" . "</div>";
+							echo "<div class='title-depoimentos'>"."<p>".'<span>"</span>'.$resultado["ds_depoimento"]."</p>"."</div>";
 							echo "</div>";
 						}
 					}
@@ -131,17 +131,17 @@
 			<div class="container-parceiros owl-carousel">
 
 				<?php
-					$mysql = new MysqlCRUD();
-					$comando = $mysql->selectFromDb(['*'], 'parceiros');
+					$pgsql = new PostgreSqlCRUD();
+					$comando = $pgsql->selectFromDb(['*'], 'parceiros');
 					$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 					if(count($resultado) != 0){
 						foreach ($resultado as $resultado){
 							echo "<div class='item-parceiros'>";
-							$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_PathImg'];
+							$caminhoImg = PATH_LINKS . "/assets/" . $resultado['ds_pathimg'];
 
 							echo "<div class='circulo-parceiros'><img src='".$caminhoImg."'></div>";
 
-							echo "<div>"."<span>".$resultado["nm_Parceiro"]."</span>"."</div>";
+							echo "<div>"."<span>".$resultado["nm_parceiro"]."</span>"."</div>";
 							echo "</div>";
 						}
 					}

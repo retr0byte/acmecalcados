@@ -2,7 +2,7 @@
 namespace Source\Class;
 
 use PDO;
-use Source\Class\MysqlCRUD;
+use Source\Class\PostgreSqlCRUD;
 
 class Promocoes
 {
@@ -53,21 +53,21 @@ class Promocoes
 	}
 
 	public function listarPromocao() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDb(['*'], 'promocoes');
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDb(['*'], 'promocoes');
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
 				echo "<tr>";
-				echo "<td>" . $resultado['nm_Promocao'] . "</td>";
-				echo "<td>" . "R$ " . $resultado['vl_Promocao'] . "</td>";
-				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
+				echo "<td>" . $resultado['nm_promocao'] . "</td>";
+				echo "<td>" . "R$ " . $resultado['vl_promocao'] . "</td>";
+				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_pathimg"]."' width='150px' height='100px'>" . "</td>";
 
-				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdatePromocoes.php?u=" . $resultado["cd_Promocao"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
+				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdatePromocoes.php?u=" . $resultado["cd_promocao"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
 
 
 
-				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_Promocao"]."' class='"."btn-exclui-promocao"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
+				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_promocao"]."' class='"."btn-exclui-promocao"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
 
 
 				echo "</tr>";
@@ -76,33 +76,33 @@ class Promocoes
 	}
 
 	public function formEditPromocao($u) {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDB(['*'], 'Promocoes', 'WHERE cd_Promocao = ?', [$u]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDB(['*'], 'Promocoes', 'WHERE cd_promocao = ?', [$u]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='nome'>" . "NOME:". "</label>";
-				echo "<input type='text' name='nm_promocao' id='nm_promocao' value='".$resultado['nm_Promocao']."' required>";
+				echo "<input type='text' name='nm_promocao' id='nm_promocao' value='".$resultado['nm_promocao']."' required>";
 				echo "</div>";
 
 				echo "<div>";
 				echo "<label for='preco'>" . "PREÇO:" . "</label>";
-				echo "<input type='text' name='vl_promocao' id='vl_promocao' value='".$resultado['vl_Promocao']."' required>";
+				echo "<input type='text' name='vl_promocao' id='vl_promocao' value='".$resultado['vl_promocao']."' required>";
 				echo "</div>";
 				echo "</div>";
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
+				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_pathimg"]."'>";
 				echo "</div>";
 				echo "</div>";
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='imagem'>" . "IMAGEM:" . "</label>";
-				echo "<input type='file' name='ds_PathImg' onchange='readURL(this)' id='ds_PathImg' required>";
+				echo "<input type='file' name='ds_pathimg' onchange='readURL(this)' id='ds_pathimg' required>";
 				echo "</div>";
 				echo "</div>";
 			}
@@ -110,8 +110,8 @@ class Promocoes
 	}
 
 	public function criarPromocao() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->insertOnDB('promocoes',['nm_promocao','vl_promocao','ds_pathimg', 'ds_PathImgAbsoluto'],[$this->nm_promocao, $this->vl_promocao, $this->ds_imagem_promocao, $this->ds_imagem_promocao_abs]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->insertOnDB('promocoes',['nm_promocao','vl_promocao','ds_pathimg', 'ds_pathimgabsoluto'],[$this->nm_promocao, $this->vl_promocao, $this->ds_imagem_promocao, $this->ds_imagem_promocao_abs]);
 		
 
 		if($comando) {
@@ -130,13 +130,13 @@ class Promocoes
 	}
 
 	public function excluirPromocao($d) {
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-        $getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'promocoes','WHERE cd_promocao = ?', [$d]);
+        $getPathImg = $pgsql->selectFromDB(['ds_pathimgabsoluto'],'promocoes','WHERE cd_promocao = ?', [$d]);
         $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
-        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+        $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $mysql->deleteFromDB('promocoes','cd_Promocao = ? LIMIT 1',[$d]);
+		$comando = $pgsql->deleteFromDB('promocoes','cd_promocao = ? LIMIT 1',[$d]);
 
         unlink($pathImg);
 
@@ -158,13 +158,13 @@ class Promocoes
 
 	public function editarPromocao($u) {
 
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-        $getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'promocoes','WHERE cd_promocao = ?', [$u]);
+        $getPathImg = $pgsql->selectFromDB(['ds_pathimgabsoluto'],'promocoes','WHERE cd_promocao = ?', [$u]);
         $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
-        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+        $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $mysql->updateOnDB('promocoes','nm_Promocao = ?, vl_Promocao = ?, ds_PathImg = ?, ds_PathImgAbsoluto = ?','cd_Promocao = ?', [$this->nm_promocao, $this->vl_promocao,$this->ds_imagem_promocao, $this->ds_imagem_promocao_abs,$u]);
+		$comando = $pgsql->updateOnDB('promocoes','nm_promocao = ?, vl_promocao = ?, ds_pathimg = ?, ds_pathimgabsoluto = ?','cd_promocao = ?', [$this->nm_promocao, $this->vl_promocao,$this->ds_imagem_promocao, $this->ds_imagem_promocao_abs,$u]);
 
 		
 

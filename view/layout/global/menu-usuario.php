@@ -3,24 +3,24 @@
 			<div class="squad-adm-info">
 				<div class="icone-adm">
 					<?php 
-					use Source\Class\MysqlCRUD; 
-					$mysql = new MysqlCRUD();
-					$comandoIMG = $mysql->selectFromDB(['ds_PathImg'], 'Usuarios', 'WHERE cd_Usuario = ?', [$_SESSION["codigo"]]);
+					use Source\Class\PostgreSqlCRUD; 
+					$pgsql = new PostgreSqlCRUD();
+					$comandoIMG = $pgsql->selectFromDB(['ds_pathimg'], 'Usuarios', 'WHERE cd_usuario = ?', [$_SESSION["codigo"]]);
 					$resultado = $comandoIMG->fetchAll(PDO::FETCH_ASSOC);
 					if(count($resultado) != 0) {
 						foreach ($resultado as $resultado) {
-							echo "<img id='imgADM' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
+							echo "<img id='imgADM' src='".PATH_LINKS.'/assets/'.$resultado["ds_pathimg"]."'>";
 						}
 					}
 					?>
 				</div>
 				<span>
 					<?php 
-					$comando = $mysql->selectFromDB(['nm_Usuario'], 'Usuarios', 'WHERE cd_Usuario = ?', [$_SESSION["codigo"]]);
+					$comando = $pgsql->selectFromDB(['nm_usuario'], 'Usuarios', 'WHERE cd_usuario = ?', [$_SESSION["codigo"]]);
 					$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 					if(count($resultado) != 0) {
 						foreach ($resultado as $resultado) {
-							echo $resultado["nm_Usuario"];
+							echo $resultado["nm_usuario"];
 						}
 					}
 					?>

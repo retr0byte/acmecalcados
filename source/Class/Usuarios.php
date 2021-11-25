@@ -2,7 +2,7 @@
 namespace Source\Class;
 
 use PDO;
-use Source\Class\MysqlCRUD;
+use Source\Class\PostgreSqlCRUD;
 
 class Usuarios
 {
@@ -38,8 +38,8 @@ class Usuarios
 	}
 
 	public function formEditUsuario($u) {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDB(['*'], 'Usuarios', 'WHERE cd_Usuario = ?', [$u]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDB(['*'], 'Usuarios', 'WHERE cd_usuario = ?', [$u]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
@@ -47,24 +47,24 @@ class Usuarios
 				echo "<div>";
 				echo "<label for='nome'>" . "NOME:" . "</label>";
 													
-				echo "<input type='text' name='nm_usuario' value='".$resultado['nm_Usuario']."' id='nm_usuario' required>";
+				echo "<input type='text' name='nm_usuario' value='".$resultado['nm_usuario']."' id='nm_usuario' required>";
 				echo "</div>";
 								
 				echo "<div>";
 				echo "<label for='nm_acesso'>" . "NOME DE USUARIO:" . "</label>";
 													
-				echo "<input type='text' name='nm_acesso' value='".$resultado['nm_Acesso']."' id='nm_acesso' required>";
+				echo "<input type='text' name='nm_acesso' value='".$resultado['nm_acesso']."' id='nm_acesso' required>";
 				echo "</div>";
 				echo "</div>";
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
+				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_pathimg"]."'>";
 				echo "</div>";
 				echo "</div>";
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<label for='ds_PathImg'>" . "NOVA IMAGEM?" . "</label>";
-				echo "<input type='file' name='ds_PathImg' onchange='readURL(this)' id='ds_PathImg' required>";
+				echo "<label for='ds_pathimg'>" . "NOVA IMAGEM?" . "</label>";
+				echo "<input type='file' name='ds_pathimg' onchange='readURL(this)' id='ds_pathimg' required>";
 				echo "</div>";
 				echo "</div>";
 			}
@@ -74,13 +74,13 @@ class Usuarios
 
 	public function editarUsuario($u) {
 
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'usuarios','WHERE cd_usuario = ?', [$u]);
+		$getPathImg = $pgsql->selectFromDB(['ds_pathimgabsoluto'],'usuarios','WHERE cd_usuario = ?', [$u]);
         $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
-        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+        $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $mysql->updateOnDB('usuarios','nm_Usuario = ?, nm_Acesso = ?, ds_PathImg = ?, ds_PathImgAbsoluto = ?','cd_Usuario = ?', [$this->nm_usuario, $this->nm_acesso , $this->ds_imagem_usuario,$this->ds_imagem_usuario_abs,$u]);
+		$comando = $pgsql->updateOnDB('usuarios','nm_usuario = ?, nm_acesso = ?, ds_pathimg = ?, ds_pathimgabsoluto = ?','cd_usuario = ?', [$this->nm_usuario, $this->nm_acesso , $this->ds_imagem_usuario,$this->ds_imagem_usuario_abs,$u]);
 
 		
 
@@ -100,8 +100,8 @@ class Usuarios
 	}
 
 	public function formEditSenha($u) {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDB(['*'], 'Usuarios', 'WHERE cd_Usuario = ?', [$u]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDB(['*'], 'Usuarios', 'WHERE cd_usuario = ?', [$u]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
@@ -109,7 +109,7 @@ class Usuarios
 				echo "<div>";
 				echo "<label for='nm_senha'>" . "SENHA ATUAL:" . "</label>";
 													
-				echo "<input type='password' name='nm_senha' value='".$resultado['ds_Senha']."' id='nm_senha' required readonly>";
+				echo "<input type='password' name='nm_senha' value='".$resultado['ds_senha']."' id='nm_senha' required readonly>";
 				echo "</div>";
 				echo "</div>";
 					
@@ -134,9 +134,9 @@ class Usuarios
 
 	public function editarSenha($u) {
 
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-		$comando = $mysql->updateOnDB('usuarios','ds_Senha = ?','cd_Usuario = ?', [$this->ds_senha,$u]);
+		$comando = $pgsql->updateOnDB('usuarios','ds_senha = ?','cd_usuario = ?', [$this->ds_senha,$u]);
 
 		
 

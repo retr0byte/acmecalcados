@@ -1,5 +1,5 @@
 <?php require_once __DIR__.'/../../assets/vendor/autoload.php'; ?>
-<?php use Source\Class\MysqlCRUD; ?>
+<?php use Source\Class\PostgreSqlCRUD; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,8 +20,8 @@
 
             <?php
 
-            $mysql = new MysqlCRUD();
-            $acessarLojasCadastradas = $mysql->selectFromDB(['*'],'lojas');
+            $pgsql = new PostgreSqlCRUD();
+            $acessarLojasCadastradas = $pgsql->selectFromDB(['*'],'lojas');
             $lojasCadastradas = $acessarLojasCadastradas->fetchAll(PDO::FETCH_ASSOC);
             $qtdLojas = count($lojasCadastradas);
 
@@ -36,10 +36,10 @@
             $lineMax = 3;
             for ($l=0; $l < $qtdLojas; $l++){
                 $loja = $lojasCadastradas[$l];
-                $nomeLoja = $loja['nm_Loja'];
-                $enderecoLoja = $loja['ds_Endereco'];
-                $telefoneLoja = $loja['cd_Telefone'];
-                $celularLoja = $loja['cd_Celular'];
+                $nomeLoja = $loja['nm_loja'];
+                $enderecoLoja = $loja['ds_endereco'];
+                $telefoneLoja = $loja['cd_telefone'];
+                $celularLoja = $loja['cd_celular'];
 
                 $celularLojaFormatado = str_replace(['-','(', ')', ' '], '', $celularLoja);
                 $linkWhats = "https://wa.me/55{$celularLojaFormatado}";

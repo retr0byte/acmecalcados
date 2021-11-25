@@ -33,10 +33,10 @@
         ]
     },
     "require": {
+        "php": "^8.0",
         "phpmailer/phpmailer": "^6.5",
-      "ext-mysqli": "*",
-      "ext-pdo": "*",
-      "ext-xdebug": "*"
+      "ext-pdo_pgsql": "*",
+      "ext-pdo": "*"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest"

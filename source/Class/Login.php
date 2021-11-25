@@ -2,7 +2,7 @@
 namespace Source\Class;
 
 use PDO;
-use Source\Class\MysqlCRUD;
+use Source\Class\PostgreSqlCRUD;
 
 class Login
 {
@@ -26,13 +26,13 @@ class Login
 	}
 
 	public function validaLogin() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDb(['cd_Usuario'], 'Usuarios', 'WHERE nm_Usuario = ? and ds_Senha = ?', [$this->nm_usuario, $this->nm_senha]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDb(['cd_usuario'], 'Usuarios', 'WHERE nm_usuario = ? and ds_senha = ?', [$this->nm_usuario, $this->nm_senha]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
 				session_start();
-				@$_SESSION["codigo"] = $resultado["cd_Usuario"];
+				@$_SESSION["codigo"] = $resultado["cd_usuario"];
 				$_SESSION["nome"] = $this->nm_usuario;
 				$_SESSION["senha"] = $this->nm_senha;
 				return [

@@ -1,6 +1,6 @@
 <?php require_once __DIR__.'/../../assets/vendor/autoload.php'; ?>
 <?php  
-	use Source\Class\MysqlCRUD;
+	use Source\Class\PostgreSqlCRUD;
 	use Source\Class\Depoimentos;
 	require_once PATH.'/../config/session.php';
 ?>

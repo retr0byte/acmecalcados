@@ -6,7 +6,7 @@ $(function(){ // equivalente do window.onload
         let nm_promocao = $('#nm_promocao').val()
         let vl_promocao = $('#vl_promocao').val()
 
-        let photo = document.getElementById("ds_PathImg").files[0];
+        let photo = document.getElementById("ds_pathimg").files[0];
         let formData = new FormData();
 
         formData.append("photo", photo);

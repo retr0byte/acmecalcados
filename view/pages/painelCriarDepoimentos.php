@@ -1,6 +1,6 @@
 <?php require_once __DIR__.'/../../assets/vendor/autoload.php'; ?>
 <?php  
-	use Source\Class\MysqlCRUD;
+	use Source\Class\PostgreSqlCRUD;
 	use Source\Class\Depoimentos;
 	require_once PATH.'/../config/session.php';
 ?>
@@ -45,7 +45,7 @@
 								<div class="box-form-geral">
 									<div>
 										<label for="imagem">IMAGEM:</label>
-										<input type="file" name="ds_PathImg" id="ds_PathImg" required>
+										<input type="file" name="ds_pathimg" id="ds_pathimg" required>
 									</div>
 								</div>
 								<div class="box-form-geral">

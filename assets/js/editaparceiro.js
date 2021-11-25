@@ -6,7 +6,7 @@ $(function(){ // equivalente do window.onload
         let parameter = new URLSearchParams(window.location.search);
         const u = parameter.get("u")
 
-        let photo = document.getElementById("ds_PathImg").files[0];
+        let photo = document.getElementById("ds_pathimg").files[0];
         let formData = new FormData();
 
         formData.append("photo", photo);

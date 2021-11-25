@@ -5,7 +5,7 @@ $(function(){ // equivalente do window.onload
         
         let nm_parceiro = $('#nm_parceiro').val()
         
-        let photo = document.getElementById("ds_PathImg").files[0];
+        let photo = document.getElementById("ds_pathimg").files[0];
         let formData = new FormData();
 
         formData.append("photo", photo);

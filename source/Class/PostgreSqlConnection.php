@@ -4,9 +4,10 @@ namespace Source\Class;
 
 use PDO;
 
-abstract class MysqlConnection
+abstract class PostgreSqlConnection
 {
     private string $hostname = HOST;
+    private int $port = 5432;
     private string $username = USER;
     private string $password = PASSWD;
     private string $database = DATABASE;
@@ -15,7 +16,7 @@ abstract class MysqlConnection
     protected function init(): PDO | string
     {
         try {
-            $this->conn = new PDO("mysql:host={$this->hostname};dbname={$this->database}",$this->username,$this->password);
+            $this->conn = new PDO("pgsql:host={$this->hostname};port={$this->port};dbname={$this->database}",$this->username,$this->password);
             return $this->conn;
         }catch (\PDOException $error){
             return $error->getMessage();

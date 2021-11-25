@@ -2,7 +2,7 @@
 namespace Source\Class;
 
 use PDO;
-use Source\Class\MysqlCRUD;
+use Source\Class\PostgreSqlCRUD;
 
 class Parceiros
 {
@@ -28,19 +28,19 @@ class Parceiros
 	}
 
 	public function listarParceiro() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDb(['*'], 'parceiros');
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDb(['*'], 'parceiros');
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
 				echo "<tr>";
-				echo "<td>" . $resultado['nm_Parceiro'] . "</td>";
+				echo "<td>" . $resultado['nm_parceiro'] . "</td>";
 
-				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
+				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_pathimg"]."' width='150px' height='100px'>" . "</td>";
 
-				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdateParceiros.php?u=" . $resultado["cd_Parceiro"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
+				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdateParceiros.php?u=" . $resultado["cd_parceiro"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
 
-				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_Parceiro"]."' class='"."btn-exclui-parceiro"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
+				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_parceiro"]."' class='"."btn-exclui-parceiro"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
 
 				echo "<tr>";
 			}
@@ -48,29 +48,29 @@ class Parceiros
 	}
 
 	public function formEditParceiro($u) {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDB(['*'], 'Parceiros', 'WHERE cd_Parceiro = ?', [$u]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDB(['*'], 'Parceiros', 'WHERE cd_parceiro = ?', [$u]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='nome'>" . "NOME:". "</label>";
-				echo "<input type='text' name='nm_parceiro' id='nm_parceiro' value='".$resultado['nm_Parceiro']."' required>";
+				echo "<input type='text' name='nm_parceiro' id='nm_parceiro' value='".$resultado['nm_parceiro']."' required>";
 
 				echo "</div>";
 				echo "</div>";
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
+				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_pathimg"]."'>";
 				echo "</div>";
 				echo "</div>";
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='imagem'>" . "IMAGEM:" . "</label>";
-				echo "<input type='file' name='ds_PathImg' onchange='readURL(this)' id='ds_PathImg' required>";
+				echo "<input type='file' name='ds_pathimg' onchange='readURL(this)' id='ds_pathimg' required>";
 				echo "</div>";
 				echo "</div>";
 			}
@@ -78,8 +78,8 @@ class Parceiros
 	}
 
 	public function criarParceiro() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->insertOnDB('parceiros',['nm_Parceiro','ds_PathImg', 'ds_PathImgAbsoluto'],[$this->nm_parceiro, $this->ds_imagem_parceiro, $this->ds_imagem_parceiro_abs]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->insertOnDB('parceiros',['nm_parceiro','ds_pathimg', 'ds_pathimgabsoluto'],[$this->nm_parceiro, $this->ds_imagem_parceiro, $this->ds_imagem_parceiro_abs]);
 		
 
 		if($comando) {
@@ -98,13 +98,13 @@ class Parceiros
 	}
 
 	public function excluirParceiro($d) {
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'parceiros','WHERE cd_parceiro = ?', [$d]);
+		$getPathImg = $pgsql->selectFromDB(['ds_pathimgabsoluto'],'parceiros','WHERE cd_parceiro = ?', [$d]);
         $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
-        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+        $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $mysql->deleteFromDB('parceiros','cd_Parceiro = ? LIMIT 1',[$d]);
+		$comando = $pgsql->deleteFromDB('parceiros','cd_parceiro = ? LIMIT 1',[$d]);
 
 		unlink($pathImg);
 
@@ -125,14 +125,14 @@ class Parceiros
 
 	public function editarParceiro($u) {
 
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
 
-		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'parceiros','WHERE cd_parceiro = ?', [$u]);
+		$getPathImg = $pgsql->selectFromDB(['ds_pathimgabsoluto'],'parceiros','WHERE cd_parceiro = ?', [$u]);
         $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
-        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+        $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $mysql->updateOnDB('parceiros','nm_Parceiro = ?, ds_PathImg = ?, ds_PathImgAbsoluto = ?','cd_Parceiro = ?', [$this->nm_parceiro, $this->ds_imagem_parceiro, $this->ds_imagem_parceiro_abs,$u]);
+		$comando = $pgsql->updateOnDB('parceiros','nm_parceiro = ?, ds_pathimg = ?, ds_pathimgabsoluto = ?','cd_parceiro = ?', [$this->nm_parceiro, $this->ds_imagem_parceiro, $this->ds_imagem_parceiro_abs,$u]);
 
 		
 

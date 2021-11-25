@@ -2,7 +2,7 @@
 namespace Source\Class;
 
 use PDO;
-use Source\Class\MysqlCRUD;
+use Source\Class\PostgreSqlCRUD;
 
 class Lojas
 {
@@ -32,23 +32,23 @@ class Lojas
 	}
 
 	public function listarLoja() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDb(['*'], 'lojas');
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDb(['*'], 'lojas');
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
 				echo "<tr>";
-				echo "<td>" . $resultado['nm_Loja'] . "</td>";
+				echo "<td>" . $resultado['nm_loja'] . "</td>";
 
-				echo "<td>" . $resultado['ds_Endereco'] . "</td>";
+				echo "<td>" . $resultado['ds_endereco'] . "</td>";
 
-				echo "<td>" . $resultado['cd_Telefone'] . "</td>";
+				echo "<td>" . $resultado['cd_telefone'] . "</td>";
 
-				echo "<td>" . $resultado['cd_Celular'] . "</td>";
+				echo "<td>" . $resultado['cd_celular'] . "</td>";
 
-				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdateLojas.php?u=" . $resultado["cd_Loja"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
+				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdateLojas.php?u=" . $resultado["cd_loja"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
 
-				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_Loja"]."' class='"."btn-exclui-loja"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
+				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_loja"]."' class='"."btn-exclui-loja"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
 
 				echo "<tr>";
 			}
@@ -56,8 +56,8 @@ class Lojas
 	}
 
 	public function formEditLoja($u) {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDB(['*'], 'Lojas', 'WHERE cd_Loja = ?', [$u]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDB(['*'], 'Lojas', 'WHERE cd_loja = ?', [$u]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
@@ -65,14 +65,14 @@ class Lojas
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='nome'>" . "NOME:". "</label>";
-				echo "<input type='text' name='nm_loja' id='nm_loja' value='".$resultado['nm_Loja']."' required>";
+				echo "<input type='text' name='nm_loja' id='nm_loja' value='".$resultado['nm_loja']."' required>";
 				echo "</div>";
 				echo "</div>";
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='endereco'>" . "ENDERECO:". "</label>";
-				echo "<input type='text' name='ds_endereco' id='ds_endereco' value='".$resultado['ds_Endereco']."' required>";
+				echo "<input type='text' name='ds_endereco' id='ds_endereco' value='".$resultado['ds_endereco']."' required>";
 				echo "</div>";
 				echo "</div>";
 
@@ -81,14 +81,14 @@ class Lojas
 				echo "<div>";
 
 				echo "<label for='telefone'>" . "TELEFONE:". "</label>";
-				echo "<input type='text' name='cd_telefone' id='cd_telefone' class='masc_loja' value='".$resultado['cd_Telefone']."' required>";
+				echo "<input type='text' name='cd_telefone' id='cd_telefone' class='masc_loja' value='".$resultado['cd_telefone']."' required>";
 
 				echo "</div>";
 
 				echo "<div>";
 
 				echo "<label for='celular'>" . "CELULAR:". "</label>";
-				echo "<input type='text' name='nm_celular' id='cd_celular' class='masc_loja' value='".$resultado['cd_Celular']."' required>";
+				echo "<input type='text' name='nm_celular' id='cd_celular' class='masc_loja' value='".$resultado['cd_celular']."' required>";
 
 				echo "</div>";
 				echo "</div>";
@@ -97,8 +97,8 @@ class Lojas
 	}
 
 	public function criarLoja() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->insertOnDB('Lojas',['nm_Loja','ds_Endereco', 'cd_Telefone', 'cd_Celular'],[$this->nm_loja, $this->ds_endereco, $this->cd_telefone, $this->cd_celular]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->insertOnDB('Lojas',['nm_loja','ds_endereco', 'cd_telefone', 'cd_celular'],[$this->nm_loja, $this->ds_endereco, $this->cd_telefone, $this->cd_celular]);
 		
 
 		if($comando) {
@@ -117,9 +117,9 @@ class Lojas
 	}
 
 	public function excluirLoja($d) {
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-		$comando = $mysql->deleteFromDB('lojas','cd_Loja = ? LIMIT 1',[$d]);
+		$comando = $pgsql->deleteFromDB('lojas','cd_loja = ? LIMIT 1',[$d]);
 
 		
 
@@ -139,9 +139,9 @@ class Lojas
 
 	public function editarLoja($u) {
 
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-		$comando = $mysql->updateOnDB('lojas','nm_Loja = ?, ds_Endereco = ?, cd_Telefone = ?, cd_Celular = ?','cd_Loja = ?', [$this->nm_loja, $this->ds_endereco, $this->cd_telefone, $this->cd_celular,$u]);
+		$comando = $pgsql->updateOnDB('lojas','nm_loja = ?, ds_endereco = ?, cd_telefone = ?, cd_celular = ?','cd_loja = ?', [$this->nm_loja, $this->ds_endereco, $this->cd_telefone, $this->cd_celular,$u]);
 
 		
 

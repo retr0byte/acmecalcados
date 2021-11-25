@@ -2,7 +2,7 @@
 namespace Source\Class;
 
 use PDO;
-use Source\Class\MysqlCRUD;
+use Source\Class\PostgreSqlCRUD;
 
 class Depoimentos
 {
@@ -33,19 +33,19 @@ class Depoimentos
 	}
 
 	public function listarDepoimento() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDb(['*'], 'depoimentos');
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDb(['*'], 'depoimentos');
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
 				echo "<tr>";
-				echo "<td>" . $resultado['nm_Depoimento'] . "</td>";
-				echo "<td>" . $resultado['ds_Depoimento'] . "</td>";
-				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."' width='150px' height='100px'>" . "</td>";
+				echo "<td>" . $resultado['nm_depoimento'] . "</td>";
+				echo "<td>" . $resultado['ds_depoimento'] . "</td>";
+				echo "<td>" . "<img src='".PATH_LINKS.'/assets/'.$resultado["ds_pathimg"]."' width='150px' height='100px'>" . "</td>";
 
-				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdateDepoimentos.php?u=" . $resultado["cd_Depoimento"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
+				echo "<td>" . "<a href=".PATH_LINKS."'/view/pages/painelUpdateDepoimentos.php?u=" . $resultado["cd_depoimento"] . "' >" . '<i class="fas fa-pencil-alt"></i>' ."</a>" . "</td>";
 
-				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_Depoimento"]."' class='"."btn-exclui-depoimento"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
+				echo "<td>" . "<a href='#' deleteid='".$resultado["cd_depoimento"]."' class='"."btn-exclui-depoimento"."' >" . '<i class="fas fa-trash-alt"></i>' ."</a>" . "</td>";
 
 				echo "<tr>";
 			}
@@ -53,8 +53,8 @@ class Depoimentos
 	}
 
 	public function formEditDepoimento($u) {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->selectFromDB(['*'], 'Depoimentos', 'WHERE cd_Depoimento = ?', [$u]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->selectFromDB(['*'], 'Depoimentos', 'WHERE cd_depoimento = ?', [$u]);
 		$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 		if(count($resultado) != 0) {
 			foreach ($resultado as $resultado) {
@@ -62,26 +62,26 @@ class Depoimentos
 				
 				echo "<div>";
 				echo "<label for='nome'>" . "NOME:". "</label>";
-				echo "<input type='text' name='nm_depoimento' id='nm_depoimento' value='".$resultado['nm_Depoimento']."' required>";
+				echo "<input type='text' name='nm_depoimento' id='nm_depoimento' value='".$resultado['nm_depoimento']."' required>";
 				echo "</div>";
 
 				echo "<div>";
 				echo "<label for='descricao'>" . "DESCRIÇÃO:" . "</label>";
-				echo "<input type='text' name='ds_depoimento' id='ds_depoimento' value='".$resultado['ds_Depoimento']."' required>";
+				echo "<input type='text' name='ds_depoimento' id='ds_depoimento' value='".$resultado['ds_depoimento']."' required>";
 				echo "</div>";
 
 				echo "</div>";
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
-				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_PathImg"]."'>";
+				echo "<img id='file_upload' src='".PATH_LINKS.'/assets/'.$resultado["ds_pathimg"]."'>";
 				echo "</div>";
 				echo "</div>";
 
 				echo "<div class='box-form-geral'>";
 				echo "<div>";
 				echo "<label for='imagem'>" . "IMAGEM:" . "</label>";
-				echo "<input type='file' name='ds_PathImg' onchange='readURL(this)' id='ds_PathImg' required>";
+				echo "<input type='file' name='ds_pathimg' onchange='readURL(this)' id='ds_pathimg' required>";
 				echo "</div>";
 				echo "</div>";
 			}
@@ -89,8 +89,8 @@ class Depoimentos
 	}
 
 	public function criarDepoimento() {
-		$mysql = new MysqlCRUD();
-		$comando = $mysql->insertOnDB('Depoimentos',['nm_Depoimento','ds_Depoimento','ds_PathImg', 'ds_PathImgAbsoluto'],[$this->nm_depoimento, $this->ds_depoimento, $this->ds_imagem_depoimento, $this->ds_imagem_depoimento_abs]);
+		$pgsql = new PostgreSqlCRUD();
+		$comando = $pgsql->insertOnDB('Depoimentos',['nm_depoimento','ds_depoimento','ds_pathimg', 'ds_pathimgabsoluto'],[$this->nm_depoimento, $this->ds_depoimento, $this->ds_imagem_depoimento, $this->ds_imagem_depoimento_abs]);
 		
 
 		if($comando) {
@@ -109,13 +109,13 @@ class Depoimentos
 	}
 
 	public function excluirDepoimento($d) {
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'depoimentos','WHERE cd_depoimento = ?', [$d]);
+		$getPathImg = $pgsql->selectFromDB(['ds_pathimgabsoluto'],'depoimentos','WHERE cd_depoimento = ?', [$d]);
         $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
-        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+        $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $mysql->deleteFromDB('depoimentos','cd_Depoimento = ? LIMIT 1',[$d]);
+		$comando = $pgsql->deleteFromDB('depoimentos','cd_depoimento = ? LIMIT 1',[$d]);
 
 		
 		unlink($pathImg);
@@ -136,13 +136,13 @@ class Depoimentos
 
 	public function editarDepoimento($u) {
 
-		$mysql = new MysqlCRUD();
+		$pgsql = new PostgreSqlCRUD();
 
-		$getPathImg = $mysql->selectFromDB(['ds_PathImgAbsoluto'],'depoimentos','WHERE cd_depoimento = ?', [$u]);
+		$getPathImg = $pgsql->selectFromDB(['ds_pathimgabsoluto'],'depoimentos','WHERE cd_depoimento = ?', [$u]);
 		$accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
-        $pathImg = $accessPathImg[0]['ds_PathImgAbsoluto'];
+        $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $mysql->updateOnDB('depoimentos','nm_Depoimento = ?, ds_Depoimento = ?, ds_PathImg = ?, ds_PathImgAbsoluto = ?','cd_Depoimento = ?', [$this->nm_depoimento, $this->ds_depoimento,$this->ds_imagem_depoimento,$this->ds_imagem_depoimento_abs,$u]);
+		$comando = $pgsql->updateOnDB('depoimentos','nm_depoimento = ?, ds_depoimento = ?, ds_pathimg = ?, ds_pathimgabsoluto = ?','cd_depoimento = ?', [$this->nm_depoimento, $this->ds_depoimento,$this->ds_imagem_depoimento,$this->ds_imagem_depoimento_abs,$u]);
 
 		
 

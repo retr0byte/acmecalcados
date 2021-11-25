@@ -2,7 +2,7 @@
     namespace Source\Class;
 
     use PDO;
-    use Source\Class\MysqlCRUD;
+    use Source\Class\PostgreSqlCRUD;
     class Lead{
         //Atributos
         private $ds_email;
@@ -13,8 +13,8 @@
         }
 
         public function enviarEmail(){
-            $mysql = new MysqlCRUD();
-            $comando = $mysql->insertOnDB('Leads',['ds_Email'],[$this->ds_email]);
+            $pgsql = new PostgreSqlCRUD();
+            $comando = $pgsql->insertOnDB('Leads',['ds_email'],[$this->ds_email]);
 
             if($comando) {
                 return [

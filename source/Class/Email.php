@@ -3,7 +3,7 @@
 namespace Source\Class;
 
 use PDO;
-use Source\Class\MysqlCRUD;
+use Source\Class\PostgreSqlCRUD;
 
 class Email
 {
@@ -27,23 +27,23 @@ class Email
     }
 
     private function salvarEmail(): void{
-        $mysql = new MysqlCRUD();
+        $pgsql = new PostgreSqlCRUD();
         $userId = 0;
         
-        $verificaCliente = $mysql->selectFromDB(['cd_Cliente','ds_Email'], 'clientes', 'WHERE ds_Email = ?', [$this->email]);
+        $verificaCliente = $pgsql->selectFromDB(['cd_cliente','ds_email'], 'clientes', 'WHERE ds_email = ?', [$this->email]);
         $dadosUsuario = $verificaCliente->fetchAll(PDO::FETCH_ASSOC);
 
         if(count($dadosUsuario) === 0){
-            $obterUserId = $mysql->selectFromDB(['AUTO_INCREMENT'],'information_schema.tables','WHERE table_name = ? AND table_schema = ?', ['clientes', 'acme_calcados']);
+            $obterUserId = $pgsql->selectFromDB(['AUTO_INCREMENT'],'information_schema.tables','WHERE table_name = ? AND table_schema = ?', ['clientes', 'acme_calcados']);
             $userId = $obterUserId->fetchAll(PDO::FETCH_ASSOC)[0]['AUTO_INCREMENT'];
 
-            $mysql->insertOnDB('clientes',['nm_Cliente','nm_SobrenomeCliente','cd_Telefone','ds_Email'],[$this->nome, $this->sobrenome, $this->telefone, $this->email]);
+            $pgsql->insertOnDB('clientes',['nm_cliente','nm_sobrenomecliente','cd_telefone','ds_email'],[$this->nome, $this->sobrenome, $this->telefone, $this->email]);
         }else{
-            $userId = intval($dadosUsuario[0]['cd_Cliente']);
-            $mysql->updateOnDB('clientes','nm_Cliente = ?, nm_SobrenomeCliente = ?, cd_Telefone = ?', 'cd_Cliente = ?', [$this->nome, $this->sobrenome, $this->telefone, $userId]);
+            $userId = intval($dadosUsuario[0]['cd_cliente']);
+            $pgsql->updateOnDB('clientes','nm_cliente = ?, nm_sobrenomecliente = ?, cd_telefone = ?', 'cd_cliente = ?', [$this->nome, $this->sobrenome, $this->telefone, $userId]);
         }
 
-        $mysql->insertOnDB('mensagens', ['cd_Cliente','ds_Assunto','ds_Mensagem'], [$userId, $this->assunto,$this->mensagem]);
+        $pgsql->insertOnDB('mensagens', ['cd_cliente','ds_assunto','ds_mensagem'], [$userId, $this->assunto,$this->mensagem]);
     }
 
     public function acessarInfoEmail(): array{

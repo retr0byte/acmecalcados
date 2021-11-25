@@ -1,8 +1,9 @@
 <?php
 
+
 namespace Source\Class;
 
-class MysqlCRUD extends MysqlConnection
+class PostgreSqlCRUD extends PostgreSqlConnection
 {
     private \PDOStatement | array | null $crud;
     private int $counter;
