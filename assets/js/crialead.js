@@ -18,7 +18,7 @@ const enviarInfoLead = obj => {
         response = JSON.parse(response)
 
         if(response.status === 200) {
-            location.replace(`${location.origin}/public/index.php`)
+            location.replace(`${location.origin}/index.php`)
         }
 
     }).fail(function(error) {

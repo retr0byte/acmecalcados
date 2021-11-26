@@ -119,7 +119,7 @@ class Lojas
 	public function excluirLoja($d) {
 		$pgsql = new PostgreSqlCRUD();
 
-		$comando = $pgsql->deleteFromDB('lojas','cd_loja = ? LIMIT 1',[$d]);
+		$comando = $pgsql->deleteFromDB('lojas','cd_loja = ?',[$d]);
 
 		
 

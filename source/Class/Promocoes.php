@@ -136,7 +136,7 @@ class Promocoes
         $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
         $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $pgsql->deleteFromDB('promocoes','cd_promocao = ? LIMIT 1',[$d]);
+		$comando = $pgsql->deleteFromDB('promocoes','cd_promocao = ?',[$d]);
 
         unlink($pathImg);
 

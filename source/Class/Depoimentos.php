@@ -115,7 +115,7 @@ class Depoimentos
         $accessPathImg = $getPathImg->fetchAll(PDO::FETCH_ASSOC);
         $pathImg = $accessPathImg[0]['ds_pathimgabsoluto'];
 
-		$comando = $pgsql->deleteFromDB('depoimentos','cd_depoimento = ? LIMIT 1',[$d]);
+		$comando = $pgsql->deleteFromDB('depoimentos','cd_depoimento = ?',[$d]);
 
 		
 		unlink($pathImg);
