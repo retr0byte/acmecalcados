@@ -57,4 +57,9 @@ class PostgreSqlCRUD extends PostgreSqlConnection
         $this->preparedStatements("DELETE FROM {$table} WHERE {$filter}", $params);
         return $this->crud;
     }
+
+    public function generalQuery(string $query, array $params=[]): \PDOStatement | false{
+        $this->preparedStatements($query, $params);
+        return $this->crud;
+    }
 }

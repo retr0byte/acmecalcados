@@ -1,16 +1,16 @@
 <?php
 
 // Email que vai aparecer como remetente (quem enviou)
-const FROM_EMAIL = "sendmail.php.tests@gmail.com";
+const FROM_EMAIL = "acmecalcados@gmail.com";
 // Nome que vai aparecer como remetente (quem enviou)
 const FROM_NAME = "ACME Calçados";
 
 // SMTP username
-const SMTP_USERNAME = "apikey";
+const SMTP_USERNAME = "acmecalcados@gmail.com";
 // SMTP password
-const SMTP_PASSWORD = "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";
+const SMTP_PASSWORD = "Acme@Calcados2021";
 // SMTP host
-const SMTP_HOST = "smtp.sendgrid.net";
+const SMTP_HOST = "smtp.gmail.com";
 // SMTP port
 const SMTP_PORT = "465";
 

@@ -34,10 +34,10 @@ class Email
         $dadosUsuario = $verificaCliente->fetchAll(PDO::FETCH_ASSOC);
 
         if(count($dadosUsuario) === 0){
-            $obterUserId = $pgsql->selectFromDB(['AUTO_INCREMENT'],'information_schema.tables','WHERE table_name = ? AND table_schema = ?', ['clientes', 'acme_calcados']);
-            $userId = $obterUserId->fetchAll(PDO::FETCH_ASSOC)[0]['AUTO_INCREMENT'];
-
             $pgsql->insertOnDB('clientes',['nm_cliente','nm_sobrenomecliente','cd_telefone','ds_email'],[$this->nome, $this->sobrenome, $this->telefone, $this->email]);
+
+            $obterUserId = $pgsql->selectFromDB(['cd_cliente'], 'clientes', 'WHERE ds_email = ?', [$this->email]);
+            $userId = $obterUserId->fetchAll(PDO::FETCH_ASSOC)[0]['cd_cliente'];
         }else{
             $userId = intval($dadosUsuario[0]['cd_cliente']);
             $pgsql->updateOnDB('clientes','nm_cliente = ?, nm_sobrenomecliente = ?, cd_telefone = ?', 'cd_cliente = ?', [$this->nome, $this->sobrenome, $this->telefone, $userId]);
