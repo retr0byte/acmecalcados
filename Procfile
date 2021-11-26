@@ -1,1 +1,1 @@
-web: assets/vendor/bin/heroku-php-apache2 public/
+web: assets/vendor/bin/heroku-php-apache2

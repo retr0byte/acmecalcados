@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<link rel="shortcut icon" href="<?php echo PATH_LINKS ?>/public/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="<?php echo PATH_LINKS ?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/header.css">
 <link rel="stylesheet" href="<?php echo PATH_LINKS ?>/assets/css/footer.css">
 

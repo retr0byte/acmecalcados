@@ -7,7 +7,7 @@
             </div>
 
             <section id="sss-img">
-                <a href="<?php echo PATH_LINKS; ?>/public/index.php"><img src="<?php echo PATH_LINKS; ?>/assets/images/logo.png" class="logo"></a>
+                <a href="<?php echo PATH_LINKS; ?>/index.php"><img src="<?php echo PATH_LINKS; ?>/assets/images/logo.png" class="logo"></a>
             </section>
 
             <section class="section-itens">
@@ -17,7 +17,7 @@
                         <i class="fas fa-bars" id="tchau"></i>
                     </nav>
                     <ul id="ul_bar">
-                        <li class="first-li"><a id="menu-home" href="<?php echo PATH_LINKS; ?>/public/index.php">HOME</a></li>
+                        <li class="first-li"><a id="menu-home" href="<?php echo PATH_LINKS; ?>/index.php">HOME</a></li>
                         <li class="first-li"><a id="menu-sobre" href="#">SOBRE</a>
                             <ul>
                                 <li><a href="<?php echo PATH_LINKS; ?>/view/pages/valores.php">VISÃO, MISSÃO E VALORES</a></li>

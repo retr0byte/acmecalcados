@@ -1,4 +1,4 @@
-<?php require_once __DIR__.'/assets/vendor/autoload.php'; ?>
+<?php require_once __DIR__ . '/assets/vendor/autoload.php'; ?>
 <?php use Source\Class\PostgreSqlCRUD; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
