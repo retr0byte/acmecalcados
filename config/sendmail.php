@@ -1,16 +1,16 @@
 <?php
 
 // Email que vai aparecer como remetente (quem enviou)
-const FROM_EMAIL = "acmecalcados@gmail.com";
+const FROM_EMAIL = "##";
 // Nome que vai aparecer como remetente (quem enviou)
-const FROM_NAME = "ACME Calçados";
+const FROM_NAME = "##";
 
 // SMTP username
-const SMTP_USERNAME = "acmecalcados@gmail.com";
+const SMTP_USERNAME = "##";
 // SMTP password
-const SMTP_PASSWORD = "Acme@Calcados2021";
+const SMTP_PASSWORD = "##";
 // SMTP host
-const SMTP_HOST = "smtp.gmail.com";
+const SMTP_HOST = "##";
 // SMTP port
-const SMTP_PORT = "465";
+const SMTP_PORT = "##";
 
