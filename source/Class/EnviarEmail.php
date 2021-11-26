@@ -10,8 +10,10 @@ class EnviarEmail
     private array $emailInfo;
     private string $fromEmail = FROM_EMAIL;
     private string $fromName = FROM_NAME;
-    private string $userName = USER_NAME;
-    private string $userPasswd = USER_PASSWD;
+    private string $smtpHost = SMTP_HOST;
+    private string $smtpPort = SMTP_PORT;
+    private string $smtpUsername = SMTP_USERNAME;
+    private string $smtpUserpasswd = SMTP_PASSWORD;
     private string | array $responseMessage;
 
     public function __construct(Email $email)
@@ -32,13 +34,13 @@ class EnviarEmail
             $email = new PHPMailer(true);
 
             // SERVER SETTINGS - apenas para o local (comentar quando subir para a produção)
-             $email->Host = "smtp.gmail.com"; // SMTP server
-             $email->Port = 465;
+             $email->Host = $this->smtpHost; // SMTP server
+             $email->Port = $this->smtpPort;
              $email->SMTPAuth = true;
              $email->isSMTP();
              $email->SMTPSecure = "ssl";
-             $email->Username = $this->userName; // user do seu email - precisa habilitar o acesso a apps menos seguros na conta do google
-             $email->Password = $this->userPasswd; // senha do seu email
+             $email->Username = $this->smtpUsername; // user do seu email - precisa habilitar o acesso a apps menos seguros na conta do google
+             $email->Password = $this->smtpUserpasswd; // senha do seu email
              //$email->SMTPDebug = 3; //Verificar log de erros detalhados caso haja algum
             // END - SERVER SETTINGS
 

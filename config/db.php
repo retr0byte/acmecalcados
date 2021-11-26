@@ -1,6 +1,6 @@
 <?php
 
-const HOST = 'ec2-52-22-144-113.compute-1.amazonaws.com';
-const USER = 'jnvadineupxjqq';
-const PASSWD = 'fc53974469b88ca17d6c4f78b62a314e1540945a3d69fbfa22a6ed1d16c2107e';
-const DATABASE = 'demidhaqpam6tr';
+const HOST = 'ec2-50-16-241-192.compute-1.amazonaws.com';
+const USER = 'pscaxwblkkmcrl';
+const PASSWD = 'a9eb5e8375cf9c3dd636cac0c3566604b070ce9a3e5514c8b391aacbafcff2c7';
+const DATABASE = 'ddek0lj364bo54';
