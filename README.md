@@ -1,13 +1,15 @@
-# Introduction 
+# Introdução
 Projeto Final da disciplina de **Prática de Gestão de Projetos**.
 
-# Getting Started
-Este projeto utiliza o composer para gerenciar dependências, você pode obtê-lo [AQUI](https://getcomposer.org/).
+Desenvolvido utilizando metodologias Ágeis com o auxilio do Azure Devops para gerenciar as SPRINTS e as tasks de cada um dos devs envolvidos.
 
-Para efetuar os testes também será necessário um servidor local. Recomendamos [este aqui](https://www.apachefriends.org/pt_br/index.html).
+Link das telas do [protótipo](https://xd.adobe.com/view/6abaf1f0-84ad-44ba-a6df-f41d18c7b340-3fe9/)
 
+# Devs do projeto
+- Gabriel Castro [github](https://github.com/gabriielsilva5)
+- Gustavo Arakaki [github](https://github.com/n3sh-source)
+- Luca Pedro [github](https://github.com/luca2613)
 
-# Build and Test
-Com tudo devidamente instalado, basta entrar na pasta raiz do projeto pelo terminal e rodar o comando **composer update**.
+# Como acessar o projeto?
+O deploy do projeto foi feito no Heroku e você pode acessá-lo [aqui](https://acmecalcados.herokuapp.com/)
 
-Feito isso as dependências serão baixadas e você estará pronto para começar os testes em um servidor local.
