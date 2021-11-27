@@ -9,7 +9,3 @@ Link das telas do [protótipo](https://xd.adobe.com/view/6abaf1f0-84ad-44ba-a6df
 - Gabriel Castro [github](https://github.com/gabriielsilva5)
 - Gustavo Arakaki [github](https://github.com/n3sh-source)
 - Luca Pedro [github](https://github.com/luca2613)
-
-# Como acessar o projeto?
-O deploy do projeto foi feito no Heroku e você pode acessá-lo [aqui](https://acmecalcados.herokuapp.com/)
-
